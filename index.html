@@ -52,15 +52,6 @@
   }
   .section h1 { font-family: 'Pacifico', cursive; font-size:3em; color:#ff1493; margin-bottom:20px; }
   .section p { font-size:1.2em; max-width:600px; margin-bottom:20px; line-height:1.6; }
-  button.next-btn {
-    padding:10px 20px;
-    background:#ff69b4;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-  }
   .card-container {
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -76,8 +67,11 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     cursor:pointer;
     transition:transform 0.2s;
+    text-align:left;
   }
   .card:hover { transform:scale(1.05); }
+  .card p { display:none; margin-top:10px; font-size:1em; line-height:1.4; }
+  .card p.visible { display:block; }
   .floating-leaf {
     position:absolute;
     font-size:20px;
@@ -107,59 +101,140 @@
 <div class="section" id="section1">
   <h1>Will You Be My Valentine? 💖</h1>
   <p>I just want to see your smile, Zaifi. 💕</p>
-  <button class="next-btn" onclick="showSection(2)">Yes 💗</button>
 </div>
 
 <!-- Section 2: Birthday Message -->
 <div class="section hidden" id="section2">
   <h1>Happy Birthday, Zaifi 🎂</h1>
   <p>Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai. I don’t know how to explain it, bas dil bhaari ho jata hai. Har saal sochta hoon ke shayad is dafa sab different hoga, shayad is dafa tum se baat ho jaye, shayad is dafa tum jaan lo ke main ab bhi wahi hoon. Tumhari yaad aaj bhi har cheez se zyada loud hoti hai — har gaane mein, har khamoshi mein. I hope you’re happy today. Sach mein. Chahe meri zindagi mein ho ya na ho, I still want life to be kind to you. Tum bohat strong ho, aur mujhe tum par hamesha fakhar raha hai. Jo bhi tum ban rahi ho, jo bhi tum achieve karogi, I know you’ll do great — tum hamesha se special thi. Shayad main tumhara hissa nahi raha, lekin tum hamesha mera sabse khoobsurat hissa rahogi. Tum meri pehli mohabbat thi, meri comfort, mera ghar. Aaj bhi dil se dua nikalti hai sirf tumhare liye — ke tum kabhi udaas na ho, ke tumhe woh sab mile jo tum deserve karti ho. Happy Birthday, Zaifi. Main yahin hoon, door sahi, lekin dil se hamesha tumhara. 🎂💌</p>
-  <button class="next-btn" onclick="showSection(3)">Next 🎈</button>
 </div>
 
 <!-- Section 3: Shayari Section -->
 <div class="section hidden" id="section3">
   <h1>SHAYARI 🌹</h1>
   <div class="card-container">
-    <div class="card">Whenever I see your eyes: تیری صورت سے ہے عالم میں بہاروں کو ثبات۔ تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے</div>
-    <div class="card">Whenever I see your old street: اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو، نہ جانے کس گلی میں زندگی کی شام ہو جائے</div>
-    <div class="card">When we met for the last time: نہ جی بھر کے دیکھا نہ کچھ بات کی، بڑی آرزو تھی ملاقات کی</div>
-    <div class="card">When will we have a meetup? مانا کہ تیری دید کے قابل نہیں ہوں میں، تو میرا شوق دیکھ مرا انتظار دیکھ</div>
-    <div class="card">Me whenever I go to Pindi: سنا ہے لوگ اسے آنکھ بھر کے دیکھتے ہیں، سو اس کے شہر میں کچھ دن ٹھہر کے دیکھتے ہیں</div>
-    <div class="card">Chai & You ☕: Sharing chai with you warms my soul more than sunlight ever could</div>
-    <div class="card">Hidden Memories ✨: Even tiny moments with you, like laughing over nothing, are treasures I keep forever</div>
-    <div class="card">Our First Kiss: Your lips touched mine, and I felt a thousand stars bloom inside me</div>
-    <div class="card">Our Silence: Words were never needed. Just being near you made the world fade</div>
-    <div class="card">Our Walks: Every step with you felt like dancing through a dream</div>
-    <div class="card">Your Smile: Your smile could light the darkest night</div>
-    <div class="card">The Way You Said My Name: Hearing my name from your lips was music I never want to stop listening to</div>
-    <div class="card">The Day I Knew: The moment I knew you were mine, time froze and everything felt right</div>
-    <div class="card">The Hard Days: Even on heavy days, thinking of you made them bearable</div>
-    <div class="card">The Soft Days: Lazy, quiet days with you were poetry in motion</div>
-    <div class="card">Birthday Memory 🎂: Every birthday reminds me how special you are to me</div>
-    <div class="card">Will You Be My Valentine? 💖: If you say yes, I promise a heart that beats only for you</div>
-    <div class="card">A Little Dream ✨: I dream of us in small, magical moments</div>
-    <div class="card">Hidden Note 💌: This note carries every thought I never said aloud</div>
-    <div class="card">Forever Yours 🍇: Through time, distance, and worlds, I will always be yours</div>
-    <div class="card">Secret Promise: No matter what, I will protect and cherish you</div>
-    <div class="card">Our Adventures: Every memory with you is an adventure I’ll never forget</div>
-    <div class="card">Stolen Glances: Every glance we shared made my heart skip</div>
-    <div class="card">Your Laugh: The sweetest sound I know</div>
-    <div class="card">Quiet Moments: Sitting silently, feeling connected without words</div>
-    <div class="card">My First Thought: You are always my first thought in the morning</div>
-    <div class="card">Lasting Touch: Every touch stays in my heart forever</div>
-    <div class="card">Favorite Memory: Walking together under the streetlights</div>
-    <div class="card">Little Things: Small things about you make me fall deeper</div>
-    <div class="card">Endless Love: My love for you will never end</div>
+    <!-- 30 cards filled with heading + paragraph hidden -->
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Whenever I see your eyes</strong>
+      <p>تیری صورت سے ہے عالم میں بہاروں کو ثبات۔ تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Whenever I see your old street</strong>
+      <p>اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو، نہ جانے کس گلی میں زندگی کی شام ہو جائے</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>When we met for the last time</strong>
+      <p>نہ جی بھر کے دیکھا نہ کچھ بات کی، بڑی آرزو تھی ملاقات کی</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>When will we have a meetup?</strong>
+      <p>مانا کہ تیری دید کے قابل نہیں ہوں میں، تو میرا شوق دیکھ مرا انتظار دیکھ</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Me whenever I go to Pindi</strong>
+      <p>سنا ہے لوگ اسے آنکھ بھر کے دیکھتے ہیں، سو اس کے شہر میں کچھ دن ٹھہر کے دیکھتے ہیں</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Chai & You ☕</strong>
+      <p>Sharing chai with you warms my soul more than sunlight ever could</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Hidden Memories ✨</strong>
+      <p>Even tiny moments with you, like laughing over nothing, are treasures I keep forever</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Our First Kiss</strong>
+      <p>Your lips touched mine, and I felt a thousand stars bloom inside me</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Our Silence</strong>
+      <p>Words were never needed. Just being near you made the world fade</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Our Walks</strong>
+      <p>Every step with you felt like dancing through a dream</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Your Smile</strong>
+      <p>Your smile could light the darkest night</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>The Way You Said My Name</strong>
+      <p>Hearing my name from your lips was music I never want to stop listening to</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>The Day I Knew</strong>
+      <p>The moment I knew you were mine, time froze and everything felt right</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>The Hard Days</strong>
+      <p>Even on heavy days, thinking of you made them bearable</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>The Soft Days</strong>
+      <p>Lazy, quiet days with you were poetry in motion</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Birthday Memory 🎂</strong>
+      <p>Every birthday reminds me how special you are to me</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Will You Be My Valentine? 💖</strong>
+      <p>If you say yes, I promise a heart that beats only for you</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>A Little Dream ✨</strong>
+      <p>I dream of us in small, magical moments</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Hidden Note 💌</strong>
+      <p>This note carries every thought I never said aloud</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Forever Yours 🍇</strong>
+      <p>Through time, distance, and worlds, I will always be yours</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Secret Promise</strong>
+      <p>No matter what, I will protect and cherish you</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Our Adventures</strong>
+      <p>Every memory with you is an adventure I’ll never forget</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Stolen Glances</strong>
+      <p>Every glance we shared made my heart skip</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Your Laugh</strong>
+      <p>The sweetest sound I know</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Quiet Moments</strong>
+      <p>Sitting silently, feeling connected without words</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>My First Thought</strong>
+      <p>You are always my first thought in the morning</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Lasting Touch</strong>
+      <p>Every touch stays in my heart forever</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Favorite Memory</strong>
+      <p>Walking together under the streetlights</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Little Things</strong>
+      <p>Small things about you make me fall deeper</p>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <strong>Endless Love</strong>
+      <p>My love for you will never end</p>
+    </div>
   </div>
-  <button class="next-btn" onclick="showSection(4)">Next 💖</button>
-</div>
-
-<!-- Section 4: Forever & Ending -->
-<div class="section hidden" id="section4">
-  <h1>Forever & Peace</h1>
-  <p>Zaifi, If there’s even a whisper of ‘us’ left in the wind — then I’ll be waiting, with love that doesn’t beg, but stays. Your comfort will always be my priority. You’re still my dua. Just one more day with you… If time gave me just 24 hours with you again, I’d hold your hand, laugh like we used to, drink chai with you, and watch the sky in silence.</p>
-  <button class="next-btn" onclick="showSection(1)">Start Again 💖</button>
 </div>
 
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
@@ -177,10 +252,9 @@ function checkPassword(){
   }
 }
 
-function showSection(num){
-  const allSections = document.querySelectorAll(".section");
-  allSections.forEach(sec=>sec.classList.add("hidden"));
-  document.getElementById("section"+num).classList.remove("hidden");
+function toggleCard(card){
+  const text = card.querySelector('p');
+  text.classList.toggle('visible');
 }
 
 // floating leaves
