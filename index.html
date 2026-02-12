@@ -1,240 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Zaifi 💗</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
 <style>
-/* Reset & Body */
-body, html { margin:0; padding:0; font-family:'Poppins', sans-serif; scroll-behavior:smooth; overflow-x:hidden; background:#fffaf0; }
-section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:40px; position:relative; transition: background 1s ease; }
-h1,h2 { margin:20px 0; font-weight:600; }
-p { line-height:1.8; font-size:18px; max-width:750px; }
-button { padding:12px 25px; border-radius:25px; border:none; cursor:pointer; margin:10px; font-size:16px; }
+body {
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(to bottom,#fff0f7,#fffaf0);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+}
 
-/* Login */
-#loginSection { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; height:100vh; background:linear-gradient(to bottom,#fff0f7,#fffaf0); }
-#loginSection input{padding:12px;border-radius:20px;border:1px solid #ffb3c6;width:220px;text-align:center;margin-bottom:15px;}
+.page {
+  display:none;
+  text-align:center;
+  padding:40px;
+  max-width:700px;
+}
 
-/* Valentine question */
-.yes{background:#ff4d88;color:white;}
-.no{background:#999;color:white;position:absolute;}
+button {
+  padding:12px 25px;
+  margin:10px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:16px;
+  background:#ff4d88;
+  color:white;
+}
 
-/* Floating animations */
-.heart,.butterfly,.leaf{position:fixed;width:15px;height:15px;opacity:0.8; z-index:0;}
-.heart{background:#ff4d88;transform:rotate(45deg);border-radius:2px;}
-.heart::before,.heart::after{content:'';width:15px;height:15px;background:#ff4d88;border-radius:50%;position:absolute;}
-.heart::before{top:-8px;left:0;}
-.heart::after{left:-8px;top:0;}
-.butterfly{width:20px;height:20px;background:url('https://i.imgur.com/4SWTnRS.png') no-repeat center/contain;}
-.leaf{width:12px;height:12px;background:#ffb347;border-radius:50%;}
-
-/* Chocolate & Cake */
-.choco,.cake{cursor:pointer; transition: transform 0.3s;}
-.choco:hover,.cake:hover{transform:scale(1.1);}
-
-/* Section variants for left/right/center */
-.section-left { text-align:left; align-items:flex-start; }
-.section-right { text-align:right; align-items:flex-end; }
-.section-center { text-align:center; align-items:center; }
-
-/* Hidden messages */
-.message{opacity:0; transition:opacity 1.5s ease-in;}
+input {
+  padding:12px;
+  border-radius:20px;
+  border:1px solid #ffb3c6;
+  text-align:center;
+}
 </style>
 </head>
+
 <body>
 
-<!-- Login -->
-<section id="loginSection">
+<!-- LOGIN -->
+<div class="page" id="login" style="display:block;">
 <h1>For Zaifi 💗</h1>
-<p>Enter our secret password to unlock 💕</p>
-<input type="password" id="passwordInput" placeholder="Our secret..."><br>
-<button onclick="checkPassword()">Unlock</button>
-</section>
-
-<div id="mainContent" class="hidden">
-
-<!-- 1. Valentine Question -->
-<section class="section-center" style="background:linear-gradient(to bottom,#fff0f7,#ffe4f0);">
-<h1>Zaifi…</h1>
-<h2>Will you be my Valentine? 💖</h2>
-<button class="yes" onclick="yesClicked()">Yes 💕</button>
-<button class="no" id="noBtn">No 😢</button>
-</section>
-
-<!-- 2. Chocolate Surprise -->
-<section class="section-left" style="background:linear-gradient(to bottom,#fff7f0,#fff0f7);">
-<h2>🍫 A little chocolate surprise</h2>
-<img src="https://i.imgur.com/Jq8XW3V.png" class="choco" id="chocoImg" alt="Chocolate">
-<div class="message" id="chocoMsg">
-I wrapped a little sweetness for you 💌
+<p>Enter our secret password</p>
+<input type="password" id="pass">
+<br><br>
+<button onclick="checkPass()">Unlock</button>
 </div>
-</section>
 
-<!-- 3. Birthday Cake -->
-<section class="section-right" style="background:linear-gradient(to bottom,#fff0f7,#ffe4f0);">
+<!-- VALENTINE -->
+<div class="page" id="valentine">
+<h1>Will you be my Valentine? 💖</h1>
+<button onclick="goToMenu()">Yes 💕</button>
+<button id="noBtn">No 😢</button>
+</div>
+
+<!-- MAIN MENU -->
+<div class="page" id="menu">
+<h2>Choose your surprise 💌</h2>
+<button onclick="showPage('chocolate')">🍫 Chocolate</button>
+<button onclick="showPage('birthday')">🎂 Birthday</button>
+<button onclick="showPage('shayari')">🌹 Shayari</button>
+<button onclick="showPage('memories')">💌 Memories</button>
+<button onclick="showPage('marry')">💍 Marry Me</button>
+<button onclick="showPage('songs')">🎵 Our Songs</button>
+</div>
+
+<!-- CHOCOLATE -->
+<div class="page" id="chocolate">
+<h2>🍫 A Little Chocolate Surprise</h2>
+<p>You deserve sweetness in every form.</p>
+<button onclick="goBack()">Back</button>
+</div>
+
+<!-- BIRTHDAY -->
+<div class="page" id="birthday">
 <h2>🎂 Happy Birthday Zaifi</h2>
-<img src="https://i.imgur.com/0O9cH9A.png" class="cake" id="cakeImg" alt="Cake">
-<div class="message" id="cakeMsg">
+<p>
+Happy Birthday, Zaifi.<br><br>
 Happy Birthday, Zaifi.
-Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai...
+Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai. I don’t know how to explain it, bas dil bhaari ho jata hai. Har saal sochta hoon ke shayad is dafa sab different hoga, shayad is dafa tum se baat ho jaye, shayad is dafa tum jaan lo ke main ab bhi wahi hoon. Tumhari yaad aaj bhi har cheez se zyada loud hoti hai — har gaane mein, har khamoshi mein.
+
+I hope you’re happy today. Sach mein. Chahe meri zindagi mein ho ya na ho, I still want life to be kind to you. Tum bohat strong ho, aur mujhe tum par hamesha fakhar raha hai. Jo bhi tum ban rahi ho, jo bhi tum achieve karogi, I know you’ll do great — tum hamesha se special thi.
+
+Shayad main tumhara hissa nahi raha, lekin tum hamesha mera sabse khoobsurat hissa rahogi. Tum meri pehli mohabbat thi, meri comfort, mera ghar. Aaj bhi dil se dua nikalti hai sirf tumhare liye — ke tum kabhi udaas na ho, ke tumhe woh sab mile jo tum deserve karti ho.
+
+Happy Birthday, Zaifi.
 Main yahin hoon, door sahi, lekin dil se hamesha tumhara. 🎂💌
-</div>
-</section>
-
-<!-- 4. Shayari Section -->
-<section class="section-center" style="background:linear-gradient(to bottom,#fffaf0,#fff0f7);">
-<h2>SHAYARI 🌹</h2>
-<div class="message">
-تیری صورت سے ہے عالم میں بہاروں کو ثبات  
-تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے  
-اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو  
-نہ جانے کس گلی میں زندگی کی شام ہو جائے
-</div>
-</section>
-
-<!-- 5. Memories / A Box of Us -->
-<section class="section-left" style="background:linear-gradient(to bottom,#fff0f7,#fffaf0);">
-<h2>Our Memories 💌</h2>
-<div class="message">
-- First time I saw you… calm, peace I never knew I needed  
-- Our silence… our eyes spoke louder than words  
-- Walks before and after tuition… I still remember 🥹
-</div>
-</section>
-
-<!-- 6. Marry Me Someday -->
-<section class="section-right" style="background:linear-gradient(to bottom,#fffaf0,#fff0f7);">
-<h2>If Life Gives Us One More Chance… 💍</h2>
-<div class="message">
-Then marry me someday — not today, not tomorrow, but when we are whole and healed.  
-No pressure, just love. ❤️
-</div>
-</section>
-
-<!-- 7. Cute Mini Surprises -->
-<section class="section-center" style="background:linear-gradient(to bottom,#ffe4f0,#fff0f7);">
-<h2>🍂 A small note for you</h2>
-<div class="message">
-Your laughter is my favorite song 🎶  
-I remember every chai we drank together ☕  
-Just wanted you to smile today 😊
-</div>
-</section>
-
-<!-- 8. Play Songs -->
-<section class="section-left" style="background:linear-gradient(to bottom,#fff0f7,#fffaf0);">
-<h2>Play Our Songs 🎶</h2>
-<button onclick="playSong('myLove')">My Love Mine All Mine</button>
-<button onclick="playSong('dekha')">Dekha Hi Nahi</button>
-<button onclick="playSong('sailor')">Sailor</button>
-<button onclick="playSong('perfect')">Perfect</button>
-<button onclick="playSong('aankhon')">Aankhon Se Batana</button>
-</section>
-
-<!-- 9. Ending -->
-<section class="section-center" style="background:linear-gradient(to bottom,#fffaf0,#ffe4f0);">
-<h2>You are loved gently 🍂💕</h2>
-<div class="message">You don’t have to reply. I just wanted you to know. 💌</div>
-</section>
-
+</p>
+<button onclick="goBack()">Back</button>
 </div>
 
-<iframe id="bgMusic" style="display:none" src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3?utm_source=generator" width="0" height="0" allow="autoplay; encrypted-media"></iframe>
+<!-- SHAYARI -->
+<div class="page" id="shayari">
+<h2>🌹 Shayari</h2>
+<p>
+تیری صورت سے ہے عالم میں بہاروں کو ثبات<br>
+تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے
+</p>
+<button onclick="goBack()">Back</button>
+</div>
+
+<!-- MEMORIES -->
+<div class="page" id="memories">
+<h2>💌 Our Memories</h2>
+<p>First time I saw you... I felt calm.</p>
+<button onclick="goBack()">Back</button>
+</div>
+
+<!-- MARRY -->
+<div class="page" id="marry">
+<h2>💍 Marry Me Someday</h2>
+<p>Not today. Not tomorrow. But someday, when life is kind.</p>
+<button onclick="goBack()">Back</button>
+</div>
+
+<!-- SONGS -->
+<div class="page" id="songs">
+<h2>🎵 Our Songs</h2>
+<button onclick="playSong('<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>')">Play Song</button>
+<button onclick="goBack()">Back</button>
+</div>
+
+<audio id="audioPlayer"></audio>
 
 <script>
-// Password Unlock
-function checkPassword(){
-  const pass=document.getElementById("passwordInput").value;
-  if(pass==="kamilovezaifi"){
-    document.getElementById("loginSection").style.display="none";
-    document.getElementById("mainContent").classList.remove("hidden");
-    document.getElementById("bgMusic").style.display="block";
-    fadeInSections();
-  } else { alert("Not our secret 🤭"); }
-}
-
-// Fade-in on scroll
-function fadeInSections(){
-  const sections=document.querySelectorAll('.fade-section .message, .message');
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.style.opacity=1;}
-    });
-  },{threshold:0.3});
-  sections.forEach(sec=>observer.observe(sec));
-}
-
-// Moving No button
-const noBtn=document.getElementById("noBtn");
-document.addEventListener("mousemove",function(e){
-  if(!noBtn) return;
-  const rect=noBtn.getBoundingClientRect();
-  const dist=Math.hypot(e.clientX-(rect.left+rect.width/2), e.clientY-(rect.top+rect.height/2));
-  if(dist<120){noBtn.style.top=Math.random()*window.innerHeight+"px"; noBtn.style.left=Math.random()*window.innerWidth+"px";}
-});
-
-// Yes Click
-function yesClicked(){
-  const modal = document.createElement("div");
-  modal.style.position = "fixed";
-  modal.style.top = "50%";
-  modal.style.left = "50%";
-  modal.style.transform = "translate(-50%, -50%)";
-  modal.style.background = "#fff0f7";
-  modal.style.padding = "40px";
-  modal.style.borderRadius = "20px";
-  modal.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
-  modal.style.textAlign = "center";
-  modal.style.zIndex = 1000;
-  modal.innerHTML = `
-    <h1>You just made me the happiest person alive 💕</h1>
-    <p>Forever starts here.</p>
-    <button onclick="this.parentElement.remove()" style="padding:12px 25px; border-radius:25px; border:none; cursor:pointer; margin-top:20px; background:#ff4d88; color:white;">Close</button>
-  `;
-  document.body.appendChild(modal);
-}
-
-// Songs
-function playSong(song){
-  let src="";
-  switch(song){
-    case "myLove": src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3"; break;
-    case "dekha": src="https://open.spotify.com/embed/track/0Y5tJX1MQlPlqiwlOH1tJY"; break;
-    case "sailor": src="https://open.spotify.com/embed/track/0Uu3Qi7V3mVexF3vR2j2xk"; break;
-    case "perfect": src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v"; break;
-    case "aankhon": src="https://open.spotify.com/embed/track/2dHHgzDwk4BJdRwy9uXhTO"; break;
+function checkPass(){
+  if(document.getElementById("pass").value === "kamilovezaifi"){
+    showPage("valentine");
+  } else {
+    alert("Wrong password 🤭");
   }
-  document.getElementById("bgMusic").src=src+"?utm_source=generator";
 }
 
-// Chocolate Click
-document.getElementById("chocoImg").addEventListener("click",()=>{
-  document.getElementById("chocoMsg").style.opacity=1;
-});
-
-// Cake Click
-document.getElementById("cakeImg").addEventListener("click",()=>{
-  document.getElementById("cakeMsg").style.opacity=1;
-});
-
-// Floating 🍂, hearts, butterflies
-function createFloat(){
-  const types=["leaf","heart","butterfly"];
-  const t=types[Math.floor(Math.random()*types.length)];
-  const el=document.createElement("div"); el.classList.add(t);
-  el.style.left=Math.random()*100+"vw";
-  el.style.top="100vh";
-  document.body.appendChild(el);
-  let speed=1+Math.random()*2;
-  let move=setInterval(()=>{
-    let top=parseFloat(el.style.top);
-    if(top<-20){el.remove(); clearInterval(move);}
-    else el.style.top=(top-speed)+"px";
-  },30);
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById(id).style.display="block";
 }
-setInterval(createFloat,500);
+
+function goBack(){
+  showPage("menu");
+}
+
+function goToMenu(){
+  showPage("menu");
+}
+
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.position="absolute";
+  noBtn.style.top=Math.random()*80+"%";
+  noBtn.style.left=Math.random()*80+"%";
+});
+
+function playSong(src){
+  const player=document.getElementById("audioPlayer");
+  player.src=src;
+  player.play();
+}
 </script>
+
 </body>
 </html>
