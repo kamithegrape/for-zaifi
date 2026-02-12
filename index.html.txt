@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Zaifi 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* Reset & Body */
+body, html { margin:0; padding:0; font-family:'Poppins', sans-serif; scroll-behavior:smooth; overflow-x:hidden; background:#fffaf0; }
+section { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:40px; position:relative; transition: background 1s ease; }
+h1,h2 { margin:20px 0; font-weight:600; }
+p { line-height:1.8; font-size:18px; max-width:750px; }
+button { padding:12px 25px; border-radius:25px; border:none; cursor:pointer; margin:10px; font-size:16px; }
+
+/* Login */
+#loginSection { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; height:100vh; background:linear-gradient(to bottom,#fff0f7,#fffaf0); }
+#loginSection input{padding:12px;border-radius:20px;border:1px solid #ffb3c6;width:220px;text-align:center;margin-bottom:15px;}
+
+/* Valentine question */
+.yes{background:#ff4d88;color:white;}
+.no{background:#999;color:white;position:absolute;}
+
+/* Floating animations */
+.heart,.butterfly,.leaf{position:fixed;width:15px;height:15px;opacity:0.8; z-index:0;}
+.heart{background:#ff4d88;transform:rotate(45deg);border-radius:2px;}
+.heart::before,.heart::after{content:'';width:15px;height:15px;background:#ff4d88;border-radius:50%;position:absolute;}
+.heart::before{top:-8px;left:0;}
+.heart::after{left:-8px;top:0;}
+.butterfly{width:20px;height:20px;background:url('https://i.imgur.com/4SWTnRS.png') no-repeat center/contain;}
+.leaf{width:12px;height:12px;background:#ffb347;border-radius:50%;}
+
+/* Chocolate & Cake */
+.choco,.cake{cursor:pointer; transition: transform 0.3s;}
+.choco:hover,.cake:hover{transform:scale(1.1);}
+
+/* Section variants for left/right/center */
+.section-left { text-align:left; align-items:flex-start; }
+.section-right { text-align:right; align-items:flex-end; }
+.section-center { text-align:center; align-items:center; }
+
+/* Hidden messages */
+.message{opacity:0; transition:opacity 1.5s ease-in;}
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<section id="loginSection">
+<h1>For Zaifi 💗</h1>
+<p>Enter our secret password to unlock 💕</p>
+<input type="password" id="passwordInput" placeholder="Our secret..."><br>
+<button onclick="checkPassword()">Unlock</button>
+</section>
+
+<div id="mainContent" class="hidden">
+
+<!-- 1. Valentine Question -->
+<section class="section-center" style="background:linear-gradient(to bottom,#fff0f7,#ffe4f0);">
+<h1>Zaifi…</h1>
+<h2>Will you be my Valentine? 💖</h2>
+<button class="yes" onclick="yesClicked()">Yes 💕</button>
+<button class="no" id="noBtn">No 😢</button>
+</section>
+
+<!-- 2. Chocolate Surprise -->
+<section class="section-left" style="background:linear-gradient(to bottom,#fff7f0,#fff0f7);">
+<h2>🍫 A little chocolate surprise</h2>
+<img src="https://i.imgur.com/Jq8XW3V.png" class="choco" id="chocoImg" alt="Chocolate">
+<div class="message" id="chocoMsg">
+I wrapped a little sweetness for you 💌
+</div>
+</section>
+
+<!-- 3. Birthday Cake -->
+<section class="section-right" style="background:linear-gradient(to bottom,#fff0f7,#ffe4f0);">
+<h2>🎂 Happy Birthday Zaifi</h2>
+<img src="https://i.imgur.com/0O9cH9A.png" class="cake" id="cakeImg" alt="Cake">
+<div class="message" id="cakeMsg">
+Happy Birthday, Zaifi.
+Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai...
+Main yahin hoon, door sahi, lekin dil se hamesha tumhara. 🎂💌
+</div>
+</section>
+
+<!-- 4. Shayari Section -->
+<section class="section-center" style="background:linear-gradient(to bottom,#fffaf0,#fff0f7);">
+<h2>SHAYARI 🌹</h2>
+<div class="message">
+تیری صورت سے ہے عالم میں بہاروں کو ثبات  
+تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے  
+اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو  
+نہ جانے کس گلی میں زندگی کی شام ہو جائے
+</div>
+</section>
+
+<!-- 5. Memories / A Box of Us -->
+<section class="section-left" style="background:linear-gradient(to bottom,#fff0f7,#fffaf0);">
+<h2>Our Memories 💌</h2>
+<div class="message">
+- First time I saw you… calm, peace I never knew I needed  
+- Our silence… our eyes spoke louder than words  
+- Walks before and after tuition… I still remember 🥹
+</div>
+</section>
+
+<!-- 6. Marry Me Someday -->
+<section class="section-right" style="background:linear-gradient(to bottom,#fffaf0,#fff0f7);">
+<h2>If Life Gives Us One More Chance… 💍</h2>
+<div class="message">
+Then marry me someday — not today, not tomorrow, but when we are whole and healed.  
+No pressure, just love. ❤️
+</div>
+</section>
+
+<!-- 7. Cute Mini Surprises -->
+<section class="section-center" style="background:linear-gradient(to bottom,#ffe4f0,#fff0f7);">
+<h2>🍂 A small note for you</h2>
+<div class="message">
+Your laughter is my favorite song 🎶  
+I remember every chai we drank together ☕  
+Just wanted you to smile today 😊
+</div>
+</section>
+
+<!-- 8. Play Songs -->
+<section class="section-left" style="background:linear-gradient(to bottom,#fff0f7,#fffaf0);">
+<h2>Play Our Songs 🎶</h2>
+<button onclick="playSong('myLove')">My Love Mine All Mine</button>
+<button onclick="playSong('dekha')">Dekha Hi Nahi</button>
+<button onclick="playSong('sailor')">Sailor</button>
+<button onclick="playSong('perfect')">Perfect</button>
+<button onclick="playSong('aankhon')">Aankhon Se Batana</button>
+</section>
+
+<!-- 9. Ending -->
+<section class="section-center" style="background:linear-gradient(to bottom,#fffaf0,#ffe4f0);">
+<h2>You are loved gently 🍂💕</h2>
+<div class="message">You don’t have to reply. I just wanted you to know. 💌</div>
+</section>
+
+</div>
+
+<iframe id="bgMusic" style="display:none" src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3?utm_source=generator" width="0" height="0" allow="autoplay; encrypted-media"></iframe>
+
+<script>
+// Password Unlock
+function checkPassword(){
+  const pass=document.getElementById("passwordInput").value;
+  if(pass==="kamilovezaifi"){
+    document.getElementById("loginSection").style.display="none";
+    document.getElementById("mainContent").classList.remove("hidden");
+    document.getElementById("bgMusic").style.display="block";
+    fadeInSections();
+  } else { alert("Not our secret 🤭"); }
+}
+
+// Fade-in on scroll
+function fadeInSections(){
+  const sections=document.querySelectorAll('.fade-section .message, .message');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.style.opacity=1;}
+    });
+  },{threshold:0.3});
+  sections.forEach(sec=>observer.observe(sec));
+}
+
+// Moving No button
+const noBtn=document.getElementById("noBtn");
+document.addEventListener("mousemove",function(e){
+  if(!noBtn) return;
+  const rect=noBtn.getBoundingClientRect();
+  const dist=Math.hypot(e.clientX-(rect.left+rect.width/2), e.clientY-(rect.top+rect.height/2));
+  if(dist<120){noBtn.style.top=Math.random()*window.innerHeight+"px"; noBtn.style.left=Math.random()*window.innerWidth+"px";}
+});
+
+// Yes Click
+function yesClicked(){
+  const modal = document.createElement("div");
+  modal.style.position = "fixed";
+  modal.style.top = "50%";
+  modal.style.left = "50%";
+  modal.style.transform = "translate(-50%, -50%)";
+  modal.style.background = "#fff0f7";
+  modal.style.padding = "40px";
+  modal.style.borderRadius = "20px";
+  modal.style.boxShadow = "0 0 20px rgba(0,0,0,0.3)";
+  modal.style.textAlign = "center";
+  modal.style.zIndex = 1000;
+  modal.innerHTML = `
+    <h1>You just made me the happiest person alive 💕</h1>
+    <p>Forever starts here.</p>
+    <button onclick="this.parentElement.remove()" style="padding:12px 25px; border-radius:25px; border:none; cursor:pointer; margin-top:20px; background:#ff4d88; color:white;">Close</button>
+  `;
+  document.body.appendChild(modal);
+}
+
+// Songs
+function playSong(song){
+  let src="";
+  switch(song){
+    case "myLove": src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3"; break;
+    case "dekha": src="https://open.spotify.com/embed/track/0Y5tJX1MQlPlqiwlOH1tJY"; break;
+    case "sailor": src="https://open.spotify.com/embed/track/0Uu3Qi7V3mVexF3vR2j2xk"; break;
+    case "perfect": src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v"; break;
+    case "aankhon": src="https://open.spotify.com/embed/track/2dHHgzDwk4BJdRwy9uXhTO"; break;
+  }
+  document.getElementById("bgMusic").src=src+"?utm_source=generator";
+}
+
+// Chocolate Click
+document.getElementById("chocoImg").addEventListener("click",()=>{
+  document.getElementById("chocoMsg").style.opacity=1;
+});
+
+// Cake Click
+document.getElementById("cakeImg").addEventListener("click",()=>{
+  document.getElementById("cakeMsg").style.opacity=1;
+});
+
+// Floating 🍂, hearts, butterflies
+function createFloat(){
+  const types=["leaf","heart","butterfly"];
+  const t=types[Math.floor(Math.random()*types.length)];
+  const el=document.createElement("div"); el.classList.add(t);
+  el.style.left=Math.random()*100+"vw";
+  el.style.top="100vh";
+  document.body.appendChild(el);
+  let speed=1+Math.random()*2;
+  let move=setInterval(()=>{
+    let top=parseFloat(el.style.top);
+    if(top<-20){el.remove(); clearInterval(move);}
+    else el.style.top=(top-speed)+"px";
+  },30);
+}
+setInterval(createFloat,500);
+</script>
+</body>
+</html>
