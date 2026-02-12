@@ -3,172 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Zaifi 💖</title>
+<title>My Love, Mine All Mine</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Body & Background */
-body, html{
-  margin:0; padding:0;
-  font-family: 'Segoe UI', sans-serif;
-  overflow-x:hidden;
-  background: linear-gradient(135deg, #ffe6f0, #ffccd9, #ffd6e8);
-  background-size: 400% 400%;
-  animation: gradientMove 20s ease infinite;
-}
-@keyframes gradientMove {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-/* Headings & Text */
-h1,h2{ text-align:center; color:#ff1a66; text-shadow:0 0 15px rgba(255,255,255,0.8);}
-p{line-height:1.6em; color:#333; font-size:16px;}
-button{
-  padding:12px 25px; border:none; border-radius:30px;
-  background:#ff4d88; color:white; font-size:16px;
-  cursor:pointer; margin:10px; transition:0.3s;
-}
-button:hover{ background:#ff1a66; transform:scale(1.05); }
-
-/* Falling leaves */
-.falling{position:fixed;top:-50px;font-size:20px;animation:fall 12s linear infinite;pointer-events:none;opacity:0.7;}
-@keyframes fall{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);}}
-
-#loginPage{
-  position:fixed;width:100%;height:100%;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  display:flex; justify-content:center; align-items:center;
-  flex-direction:column;
-}
-#loginPage input{
-  padding:10px;border-radius:10px;border:none;margin:10px;font-size:16px;
-}
-#mainHub{display:none;padding:40px;}
-
-/* Card Grid */
-.container{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
-.card{
-  width:220px;padding:20px;background:rgba(255,255,255,0.25);
-  backdrop-filter: blur(10px); border-radius:20px;
-  color:white;text-align:center;cursor:pointer;
-  transition:0.4s; box-shadow:0 8px 30px rgba(0,0,0,0.2);
-}
-.card:hover{ transform:translateY(-10px) scale(1.05); background:rgba(255,255,255,0.4); }
-
-/* Modal */
-.modal{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; overflow:auto; padding:20px;}
-.modal-content{ background:white; padding:30px; width:80%; max-width:800px; max-height:90%; overflow:auto; border-radius:20px; text-align:left; animation:fadeIn 0.5s ease;}
-@keyframes fadeIn{from{opacity:0; transform:scale(0.8);}to{opacity:1; transform:scale(1);}}
-.close{cursor:pointer;font-weight:bold;float:right;font-size:18px;}
+  body, html {
+    margin:0;
+    padding:0;
+    font-family: 'Quicksand', sans-serif;
+    background: #fff0f5;
+    overflow-x:hidden;
+  }
+  .login-page {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#ffe4e1;
+    text-align:center;
+  }
+  .login-page input {
+    padding:10px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin-top:10px;
+  }
+  .login-page button {
+    margin-top:10px;
+    padding:10px 20px;
+    font-size:16px;
+    border:none;
+    background:#ff69b4;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  .hidden { display:none; }
+  .section {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    position:relative;
+  }
+  .section h1 { font-family: 'Pacifico', cursive; font-size:3em; color:#ff1493; margin-bottom:20px; }
+  .section p { font-size:1.2em; max-width:600px; margin-bottom:20px; line-height:1.6; }
+  button.next-btn {
+    padding:10px 20px;
+    background:#ff69b4;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+  }
+  .card-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:20px;
+    width:90%;
+    max-width:1000px;
+  }
+  .card {
+    background:#fff0f5;
+    padding:15px;
+    border-radius:15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor:pointer;
+    transition:transform 0.2s;
+  }
+  .card:hover { transform:scale(1.05); }
+  .floating-leaf {
+    position:absolute;
+    font-size:20px;
+    animation: floatUp 6s infinite;
+    color:#ffa07a;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity:1;}
+    50% { opacity:0.7; }
+    100% { transform: translateY(-80px) rotate(360deg); opacity:0;}
+  }
+  audio { display:none; }
 </style>
 </head>
 <body>
 
-<!-- Floating 🍂 -->
-<div class="falling" style="left:5%;">🍂</div>
-<div class="falling" style="left:20%;">🍂</div>
-<div class="falling" style="left:35%;">🍂</div>
-<div class="falling" style="left:50%;">🍂</div>
-<div class="falling" style="left:65%;">🍂</div>
-<div class="falling" style="left:80%;">🍂</div>
-<div class="falling" style="left:95%;">🍂</div>
-
-<!-- LOGIN PAGE -->
-<div id="loginPage">
-<h1>Enter Password 💖</h1>
-<input type="password" id="pass" placeholder="Enter here">
-<button onclick="checkPassword()">Enter</button>
-<p id="welcomeText" style="color:white; text-align:center; font-size:18px; margin-top:20px;"></p>
+<div class="login-page" id="loginPage">
+  <h1>Enter Password to Open 💖</h1>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="checkPassword()">Enter</button>
+  <p id="loginMsg" style="color:red;margin-top:10px;"></p>
 </div>
 
-<!-- MAIN HUB -->
-<div id="mainHub">
-<h1>Welcome to My Heart 💖</h1>
+<div id="sections" class="hidden">
 
-<div style="text-align:center;margin-bottom:20px;">
-<button onclick="startMusic()">Play Our Song 🎵</button>
-<button onclick="playOtherSong('perfect.mp3')">Perfect</button>
-<button onclick="playOtherSong('ankhon.mp3')">Ankhon Se Batana</button>
-<button onclick="playOtherSong('dekha.mp3')">Dekha Hi Nahi</button>
-<button onclick="playOtherSong('sailor.mp3')">Sailor Song</button>
+<!-- Section 1: Will you be my Valentine? -->
+<div class="section" id="section1">
+  <h1>Will You Be My Valentine? 💖</h1>
+  <p>I just want to see your smile, Zaifi. 💕</p>
+  <button class="next-btn" onclick="showSection(2)">Yes 💗</button>
 </div>
 
-<audio id="bgMusic" loop>
-<source src="my-love-mine-all-mine.mp3" type="audio/mpeg">
-</audio>
-<audio id="otherSong" loop></audio>
-
-<div class="container">
-<!-- 30 Cards Fully Filled -->
-<div class="card" onclick="openModal('m1')">If You Ever Read This…</div>
-<div class="card" onclick="openModal('m2')">SHAYARI 🌹</div>
-<div class="card" onclick="openModal('m3')">A Box of Us 🌸</div>
-<div class="card" onclick="openModal('m4')">Just One More Day With You…</div>
-<div class="card" onclick="openModal('m5')">When The World Gets Heavy…</div>
-<div class="card" onclick="openModal('m6')">You’re Still My Dua</div>
-<div class="card" onclick="openModal('m7')">If Life Gives Us One More Chance…</div>
-<div class="card" onclick="openModal('m8')">If This Is Goodbye… or Beginning</div>
-<div class="card" onclick="openModal('m9')">I Wish I Could Go Back…</div>
-<div class="card" onclick="openModal('m10')">Hidden Memories ✨</div>
-<div class="card" onclick="openModal('m11')">Our First Kiss</div>
-<div class="card" onclick="openModal('m12')">Our Silence</div>
-<div class="card" onclick="openModal('m13')">Our Walks</div>
-<div class="card" onclick="openModal('m14')">Your Smile</div>
-<div class="card" onclick="openModal('m15')">The Way You Said My Name</div>
-<div class="card" onclick="openModal('m16')">The Day I Knew</div>
-<div class="card" onclick="openModal('m17')">The Hard Days</div>
-<div class="card" onclick="openModal('m18')">The Soft Days</div>
-<div class="card" onclick="openModal('m19')">Whenever I See Your Eyes</div>
-<div class="card" onclick="openModal('m20')">Your Old Street</div>
-<div class="card" onclick="openModal('m21')">Last Time We Met</div>
-<div class="card" onclick="openModal('m22')">Waiting For Our Meetup</div>
-<div class="card" onclick="openModal('m23')">Me Whenever I Go To Pindi</div>
-<div class="card" onclick="openModal('m24')">Chai & You ☕</div>
-<div class="card" onclick="openModal('m25')">One More Shayari</div>
-<div class="card" onclick="openModal('m26')">Birthday Message 🎂</div>
-<div class="card" onclick="openModal('m27')">Will You Be My Valentine? 💖</div>
-<div class="card" onclick="openModal('m28')">A Little Dream ✨</div>
-<div class="card" onclick="openModal('m29')">Hidden Note 💌</div>
-<div class="card" onclick="openModal('m30')">Forever Yours 🍇</div>
+<!-- Section 2: Birthday Message -->
+<div class="section hidden" id="section2">
+  <h1>Happy Birthday, Zaifi 🎂</h1>
+  <p>Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai. I don’t know how to explain it, bas dil bhaari ho jata hai. Har saal sochta hoon ke shayad is dafa sab different hoga, shayad is dafa tum se baat ho jaye, shayad is dafa tum jaan lo ke main ab bhi wahi hoon. Tumhari yaad aaj bhi har cheez se zyada loud hoti hai — har gaane mein, har khamoshi mein. I hope you’re happy today. Sach mein. Chahe meri zindagi mein ho ya na ho, I still want life to be kind to you. Tum bohat strong ho, aur mujhe tum par hamesha fakhar raha hai. Jo bhi tum ban rahi ho, jo bhi tum achieve karogi, I know you’ll do great — tum hamesha se special thi. Shayad main tumhara hissa nahi raha, lekin tum hamesha mera sabse khoobsurat hissa rahogi. Tum meri pehli mohabbat thi, meri comfort, mera ghar. Aaj bhi dil se dua nikalti hai sirf tumhare liye — ke tum kabhi udaas na ho, ke tumhe woh sab mile jo tum deserve karti ho. Happy Birthday, Zaifi. Main yahin hoon, door sahi, lekin dil se hamesha tumhara. 🎂💌</p>
+  <button class="next-btn" onclick="showSection(3)">Next 🎈</button>
 </div>
 
-<!-- MODALS -->
-<div id="m1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m1')">X</span>
-<h2>If You Ever Read This…</h2>
-<p>Zaifi,<br>I don’t even know if you’ll ever see this. But if somehow these words find their way to you... then know this: I loved you. I still do. Not in a clingy way, not in pain. But in peace.<br><br>You were my peace, my chaos, my home. And though the world has moved on, this part of me still stays — quietly, gently, loving you in silence.<br><br>Forever yours,<br>Kamran 🍇</p></div></div>
+<!-- Section 3: Shayari Section -->
+<div class="section hidden" id="section3">
+  <h1>SHAYARI 🌹</h1>
+  <div class="card-container">
+    <div class="card">Whenever I see your eyes: تیری صورت سے ہے عالم میں بہاروں کو ثبات۔ تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے</div>
+    <div class="card">Whenever I see your old street: اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو، نہ جانے کس گلی میں زندگی کی شام ہو جائے</div>
+    <div class="card">When we met for the last time: نہ جی بھر کے دیکھا نہ کچھ بات کی، بڑی آرزو تھی ملاقات کی</div>
+    <div class="card">When will we have a meetup? مانا کہ تیری دید کے قابل نہیں ہوں میں، تو میرا شوق دیکھ مرا انتظار دیکھ</div>
+    <div class="card">Me whenever I go to Pindi: سنا ہے لوگ اسے آنکھ بھر کے دیکھتے ہیں، سو اس کے شہر میں کچھ دن ٹھہر کے دیکھتے ہیں</div>
+    <div class="card">Chai & You ☕: Sharing chai with you warms my soul more than sunlight ever could</div>
+    <div class="card">Hidden Memories ✨: Even tiny moments with you, like laughing over nothing, are treasures I keep forever</div>
+    <div class="card">Our First Kiss: Your lips touched mine, and I felt a thousand stars bloom inside me</div>
+    <div class="card">Our Silence: Words were never needed. Just being near you made the world fade</div>
+    <div class="card">Our Walks: Every step with you felt like dancing through a dream</div>
+    <div class="card">Your Smile: Your smile could light the darkest night</div>
+    <div class="card">The Way You Said My Name: Hearing my name from your lips was music I never want to stop listening to</div>
+    <div class="card">The Day I Knew: The moment I knew you were mine, time froze and everything felt right</div>
+    <div class="card">The Hard Days: Even on heavy days, thinking of you made them bearable</div>
+    <div class="card">The Soft Days: Lazy, quiet days with you were poetry in motion</div>
+    <div class="card">Birthday Memory 🎂: Every birthday reminds me how special you are to me</div>
+    <div class="card">Will You Be My Valentine? 💖: If you say yes, I promise a heart that beats only for you</div>
+    <div class="card">A Little Dream ✨: I dream of us in small, magical moments</div>
+    <div class="card">Hidden Note 💌: This note carries every thought I never said aloud</div>
+    <div class="card">Forever Yours 🍇: Through time, distance, and worlds, I will always be yours</div>
+    <div class="card">Secret Promise: No matter what, I will protect and cherish you</div>
+    <div class="card">Our Adventures: Every memory with you is an adventure I’ll never forget</div>
+    <div class="card">Stolen Glances: Every glance we shared made my heart skip</div>
+    <div class="card">Your Laugh: The sweetest sound I know</div>
+    <div class="card">Quiet Moments: Sitting silently, feeling connected without words</div>
+    <div class="card">My First Thought: You are always my first thought in the morning</div>
+    <div class="card">Lasting Touch: Every touch stays in my heart forever</div>
+    <div class="card">Favorite Memory: Walking together under the streetlights</div>
+    <div class="card">Little Things: Small things about you make me fall deeper</div>
+    <div class="card">Endless Love: My love for you will never end</div>
+  </div>
+  <button class="next-btn" onclick="showSection(4)">Next 💖</button>
+</div>
 
-<div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">X</span>
-<h2>SHAYARI 🌹</h2>
-<p>Whenever I see your eyes: تیری صورت سے ہے عالم میں بہاروں کو ثبات، تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے<br>
-Whenever I see your old street: اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو، نہ جانے کس گلی میں زندگی کی شام ہو جائے<br>
-When we met for the last time: نہ جی بھر کے دیکھا نہ کچھ بات کی، بڑی آرزو تھی ملاقات کی<br>
-When will we have a meetup: مانا کہ تیری دید کے قابل نہیں ہوں میں، تو میرا شوق دیکھ مرا انتظار دیکھ<br>
-Me whenever I go to Pindi: سنا ہے لوگ اسے آنکھ بھر کے دیکھتے ہیں، سو اس کے شہر میں کچھ دن ٹھہر کے دیکھتے ہیں</p></div></div>
+<!-- Section 4: Forever & Ending -->
+<div class="section hidden" id="section4">
+  <h1>Forever & Peace</h1>
+  <p>Zaifi, If there’s even a whisper of ‘us’ left in the wind — then I’ll be waiting, with love that doesn’t beg, but stays. Your comfort will always be my priority. You’re still my dua. Just one more day with you… If time gave me just 24 hours with you again, I’d hold your hand, laugh like we used to, drink chai with you, and watch the sky in silence.</p>
+  <button class="next-btn" onclick="showSection(1)">Start Again 💖</button>
+</div>
 
-<!-- Continue filling m3 - m30 similarly with romantic notes, memories, birthday message, extra dreamy surprises -->
-
-<div id="m26" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m26')">X</span>
-<h2>Happy Birthday Zaifi 🎂💌</h2>
-<p>Happy Birthday, Zaifi.<br><br>
-Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai. I don’t know how to explain it, bas dil bhaari ho jata hai. Har saal sochta hoon ke shayad is dafa sab different hoga, shayad is dafa tum se baat ho jaye, shayad is dafa tum jaan lo ke main ab bhi wahi hoon. Tumhari yaad aaj bhi har cheez se zyada loud hoti hai — har gaane mein, har khamoshi mein.<br><br>
-I hope you’re happy today. Sach mein. Chahe meri zindagi mein ho ya na ho, I still want life to be kind to you. Tum bohat strong ho, aur mujhe tum par hamesha fakhar raha hai. Jo bhi tum ban rahi ho, jo bhi tum achieve karogi, I know you’ll do great — tum hamesha se special thi.<br><br>
-Shayad main tumhara hissa nahi raha, lekin tum hamesha mera sabse khoobsurat hissa rahogi. Tum meri pehli mohabbat thi, meri comfort, mera ghar. Aaj bhi dil se dua nikalti hai sirf tumhare liye — ke tum kabhi udaas na ho, ke tumhe woh sab mile jo tum deserve karti ho.<br><br>
-Happy Birthday, Zaifi.<br>Main yahin hoon, door sahi, lekin dil se hamesha tumhara. 🎂💌</p></div></div>
+<audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
 
 <script>
 function checkPassword(){
-  let p=document.getElementById("pass").value;
-  let welcome=document.getElementById("welcomeText");
-  if(p=="kamilovezaifi"){
-    document.getElementById("loginPage").style.display="none";
-    document.getElementById("mainHub").style.display="block";
-    welcome.innerHTML="You just made me the happiest person alive 💕<br>Forever starts here.";
-  }else{ alert("Wrong Password 💔"); }
+  const password = document.getElementById("passwordInput").value;
+  const msg = document.getElementById("loginMsg");
+  if(password === "kamilovezaifi"){
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("sections").classList.remove("hidden");
+    msg.innerText = "";
+  } else {
+    msg.innerText = "Incorrect password 😢";
+  }
 }
-function openModal(id){document.getElementById(id).style.display="flex";}
-function closeModal(id){document.getElementById(id).style.display="none";}
-function startMusic(){document.getElementById("bgMusic").play();}
-function playOtherSong(file){let audio=document.getElementById("otherSong");audio.src=file;audio.play();}
+
+function showSection(num){
+  const allSections = document.querySelectorAll(".section");
+  allSections.forEach(sec=>sec.classList.add("hidden"));
+  document.getElementById("section"+num).classList.remove("hidden");
+}
+
+// floating leaves
+for(let i=0;i<20;i++){
+  const leaf = document.createElement("div");
+  leaf.classList.add("floating-leaf");
+  leaf.style.left = Math.random()*100+"%";
+  leaf.style.animationDelay = Math.random()*5+"s";
+  document.body.appendChild(leaf);
+}
 </script>
+
 </body>
 </html>
