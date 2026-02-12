@@ -1,172 +1,321 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Zaifi 💗</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-
+<title>For Zaifi 💖</title>
 <style>
-body {
+/* 🌸 GENERAL STYLING */
+body, html{
   margin:0;
-  font-family:'Poppins', sans-serif;
-  background:linear-gradient(to bottom,#fff0f7,#fffaf0);
+  padding:0;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x:hidden;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+@keyframes gradientMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+h1, h2{
+  text-align:center;
+  color:white;
+  text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d88;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
+}
+button:hover{
+  background:#ff1a66;
+  transform:scale(1.05);
+}
+
+/* 🍂 FLOATING EFFECTS */
+.falling{
+  position:fixed;
+  top:-50px;
+  font-size:20px;
+  animation:fall 12s linear infinite;
+  pointer-events:none;
+  opacity:0.8;
+}
+@keyframes fall{
+  0%{transform: translateY(0) rotate(0deg);}
+  100%{transform: translateY(100vh) rotate(360deg);}
+}
+
+/* 🏠 LOGIN PAGE */
+#loginPage{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
-  overflow:hidden;
+  flex-direction:column;
 }
-
-.page {
-  display:none;
-  text-align:center;
-  padding:40px;
-  max-width:700px;
-}
-
-button {
-  padding:12px 25px;
-  margin:10px;
+#loginPage input{
+  padding:10px;
+  border-radius:10px;
   border:none;
-  border-radius:25px;
-  cursor:pointer;
+  margin:10px;
   font-size:16px;
-  background:#ff4d88;
-  color:white;
 }
 
-input {
-  padding:12px;
+/* 💌 MAIN HUB */
+#mainHub{
+  display:none;
+  padding:40px;
+}
+
+.container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+
+.card{
+  width:220px;
+  padding:20px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
   border-radius:20px;
-  border:1px solid #ffb3c6;
+  color:white;
   text-align:center;
+  cursor:pointer;
+  transition:0.4s;
+  box-shadow:0 8px 30px rgba(0,0,0,0.2);
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.05);
+  background:rgba(255,255,255,0.35);
+}
+
+/* 🖼️ MODALS */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  overflow:auto;
+  padding:20px;
+}
+.modal-content{
+  background:white;
+  padding:30px;
+  width:80%;
+  max-width:800px;
+  max-height:90%;
+  overflow:auto;
+  border-radius:20px;
+  text-align:left;
+  animation:fadeIn 0.5s ease;
+}
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(0.8);}
+  to{opacity:1; transform:scale(1);}
+}
+.close{
+  cursor:pointer;
+  font-weight:bold;
+  float:right;
+  font-size:18px;
+}
+
+/* 🎂 SPECIAL ELEMENTS */
+#chocolate, #cake{
+  width:120px;
+  margin:10px auto;
+  display:block;
+  cursor:pointer;
+  transition: transform 0.3s;
+}
+#chocolate:hover, #cake:hover{
+  transform: scale(1.1);
+}
+
+.our-pic{
+  width:300px;
+  max-width:90%;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease;
+}
+.our-pic:hover{
+  transform: scale(1.05);
 }
 </style>
 </head>
-
 <body>
 
-<!-- LOGIN -->
-<div class="page" id="login" style="display:block;">
-<h1>For Zaifi 💗</h1>
-<p>Enter our secret password</p>
-<input type="password" id="pass">
-<br><br>
-<button onclick="checkPass()">Unlock</button>
+<!-- 🍂 FALLING DECOR -->
+<div class="falling" style="left:5%;">🍂</div>
+<div class="falling" style="left:25%;">🍂</div>
+<div class="falling" style="left:45%;">🍂</div>
+<div class="falling" style="left:65%;">🍂</div>
+<div class="falling" style="left:85%;">🍂</div>
+
+<!-- 🏠 LOGIN PAGE -->
+<div id="loginPage">
+<h1>Enter Password 💖</h1>
+<input type="password" id="pass" placeholder="Enter here">
+<button onclick="checkPassword()">Enter</button>
 </div>
 
-<!-- VALENTINE -->
-<div class="page" id="valentine">
-<h1>Will you be my Valentine? 💖</h1>
-<button onclick="goToMenu()">Yes 💕</button>
-<button id="noBtn">No 😢</button>
+<!-- 💌 MAIN HUB -->
+<div id="mainHub">
+<h1>Welcome to My Heart 💖</h1>
+
+<div style="text-align:center;">
+<button onclick="startMusic()">Play Our Song 🎵</button>
+<button onclick="playOtherSong('perfect.mp3')">Perfect</button>
+<button onclick="playOtherSong('ankhon.mp3')">Ankhon Se Batana</button>
+<button onclick="playOtherSong('dekha.mp3')">Dekha Hi Nahi</button>
+<button onclick="playOtherSong('sailor.mp3')">Sailor Song</button>
 </div>
 
-<!-- MAIN MENU -->
-<div class="page" id="menu">
-<h2>Choose your surprise 💌</h2>
-<button onclick="showPage('chocolate')">🍫 Chocolate</button>
-<button onclick="showPage('birthday')">🎂 Birthday</button>
-<button onclick="showPage('shayari')">🌹 Shayari</button>
-<button onclick="showPage('memories')">💌 Memories</button>
-<button onclick="showPage('marry')">💍 Marry Me</button>
-<button onclick="showPage('songs')">🎵 Our Songs</button>
+<audio id="bgMusic" loop>
+<source src="my-love-mine-all-mine.mp3" type="audio/mpeg">
+</audio>
+<audio id="otherSong" loop></audio>
+
+<!-- 🍫 CHOCOLATE AND CAKE -->
+<img src="chocolate.png" id="chocolate" onclick="alert('A little chocolate for you 😋💖')" alt="Chocolate">
+<img src="cake.png" id="cake" onclick="alert('🎂 Happy Birthday Zaifi! Cut the cake! 🎉💗')" alt="Cake">
+
+<div class="container">
+<!-- 30 cards -->
+<div class="card" onclick="openModal('m1')">If You Ever Read This…</div>
+<div class="card" onclick="openModal('m2')">SHAYARI 🌹</div>
+<div class="card" onclick="openModal('m3')">A Box of Us 🌸</div>
+<div class="card" onclick="openModal('m4')">You’re Still My Dua</div>
+<div class="card" onclick="openModal('m5')">When The World Gets Heavy</div>
+<div class="card" onclick="openModal('m6')">Just One More Day With You</div>
+<div class="card" onclick="openModal('m7')">If Life Gives Us One More Chance…</div>
+<div class="card" onclick="openModal('m8')">If This Is Goodbye…</div>
+<div class="card" onclick="openModal('m9')">I Wish I Could Go Back…</div>
+<div class="card" onclick="openModal('m10')">If This Is Where We End…</div>
+<div class="card" onclick="openModal('m11')">The Love I Never Said Out Loud</div>
+<div class="card" onclick="openModal('m12')">In Another Universe</div>
+<div class="card" onclick="openModal('m13')">Our First Kiss</div>
+<div class="card" onclick="openModal('m14')">Our Silence</div>
+<div class="card" onclick="openModal('m15')">Our Walks</div>
+<div class="card" onclick="openModal('m16')">Your Smile</div>
+<div class="card" onclick="openModal('m17')">The Way You Said My Name</div>
+<div class="card" onclick="openModal('m18')">The Day I Knew</div>
+<div class="card" onclick="openModal('m19')">The Hard Days</div>
+<div class="card" onclick="openModal('m20')">The Soft Days</div>
+<div class="card" onclick="openModal('m21')">Whenever I See Your Eyes</div>
+<div class="card" onclick="openModal('m22')">Your Old Street</div>
+<div class="card" onclick="openModal('m23')">Last Time We Met</div>
+<div class="card" onclick="openModal('m24')">Waiting For Our Meetup</div>
+<div class="card" onclick="openModal('m25')">Me Whenever I Go To Pindi</div>
+<div class="card" onclick="openModal('m26')">Chai & You</div>
+<div class="card" onclick="openModal('m27')">One More Shayari</div>
+<div class="card" onclick="openModal('m28')">Birthday Message</div>
+<div class="card" onclick="openModal('m29')">Valentine Question 💖</div>
+<div class="card" onclick="openModal('m30')">Hidden Surprise ✨</div>
 </div>
 
-<!-- CHOCOLATE -->
-<div class="page" id="chocolate">
-<h2>🍫 A Little Chocolate Surprise</h2>
-<p>You deserve sweetness in every form.</p>
-<button onclick="goBack()">Back</button>
-</div>
+<!-- 🖼️ MODALS -->
+<div id="m1" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m1')">X</span>
+<h2>If You Ever Read This…</h2>
+<p>
+Zaifi,<br><br>
+I don’t even know if you’ll ever see this.  
+But if somehow these words find their way to you... then know this:  
+I loved you. I still do. Not in a clingy way, not in pain. But in peace.<br><br>
+You were my peace, my chaos, my home.  
+And though the world has moved on, this part of me still stays — quietly, gently, loving you in silence.<br><br>
+Forever yours,<br>Kamran 🍇
+</p>
+</div></div>
 
-<!-- BIRTHDAY -->
-<div class="page" id="birthday">
-<h2>🎂 Happy Birthday Zaifi</h2>
+<div id="m2" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m2')">X</span>
+<h2>SHAYARI 🌹</h2>
+<p>
+Whenever I see your eyes:  
+تیری صورت سے ہے عالم میں بہاروں کو ثبات  
+تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے<br><br>
+Whenever I see your old street:  
+اجالے اپنی یادوں کے ہمارے ساتھ رہنے دو  
+نہ جانے کس گلی میں زندگی کی شام ہو جائے<br><br>
+When we met for the last time:  
+نہ جی بھر کے دیکھا نہ کچھ بات کی  
+بڑی آرزو تھی ملاقات کی<br><br>
+When will we have a meetup:  
+مانا کہ تیری دید کے قابل نہیں ہوں میں  
+تو میرا شوق دیکھ مرا انتظار دیکھ<br><br>
+Me whenever I go to Pindi:  
+سنا ہے لوگ اسے آنکھ بھر کے دیکھتے ہیں  
+سو اس کے شہر میں کچھ دن ٹھہر کے دیکھتے ہیں
+</p>
+</div></div>
+
+<div id="m28" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('m28')">X</span>
+<h2>Happy Birthday Zaifi 🎂💌</h2>
 <p>
 Happy Birthday, Zaifi.<br><br>
-Happy Birthday, Zaifi.
-Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai. I don’t know how to explain it, bas dil bhaari ho jata hai. Har saal sochta hoon ke shayad is dafa sab different hoga, shayad is dafa tum se baat ho jaye, shayad is dafa tum jaan lo ke main ab bhi wahi hoon. Tumhari yaad aaj bhi har cheez se zyada loud hoti hai — har gaane mein, har khamoshi mein.
-
-I hope you’re happy today. Sach mein. Chahe meri zindagi mein ho ya na ho, I still want life to be kind to you. Tum bohat strong ho, aur mujhe tum par hamesha fakhar raha hai. Jo bhi tum ban rahi ho, jo bhi tum achieve karogi, I know you’ll do great — tum hamesha se special thi.
-
-Shayad main tumhara hissa nahi raha, lekin tum hamesha mera sabse khoobsurat hissa rahogi. Tum meri pehli mohabbat thi, meri comfort, mera ghar. Aaj bhi dil se dua nikalti hai sirf tumhare liye — ke tum kabhi udaas na ho, ke tumhe woh sab mile jo tum deserve karti ho.
-
-Happy Birthday, Zaifi.
+Aaj bhi tumhara din aata hai aur meri duniya ruk si jaati hai. I don’t know how to explain it, bas dil bhaari ho jata hai. Har saal sochta hoon ke shayad is dafa sab different hoga, shayad is dafa tum se baat ho jaye, shayad is dafa tum jaan lo ke main ab bhi wahi hoon. Tumhari yaad aaj bhi har cheez se zyada loud hoti hai — har gaane mein, har khamoshi mein.<br><br>
+I hope you’re happy today. Sach mein. Chahe meri zindagi mein ho ya na ho, I still want life to be kind to you. Tum bohat strong ho, aur mujhe tum par hamesha fakhar raha hai. Jo bhi tum ban rahi ho, jo bhi tum achieve karogi, I know you’ll do great — tum hamesha se special thi.<br><br>
+Shayad main tumhara hissa nahi raha, lekin tum hamesha mera sabse khoobsurat hissa rahogi. Tum meri pehli mohabbat thi, meri comfort, mera ghar. Aaj bhi dil se dua nikalti hai sirf tumhare liye — ke tum kabhi udaas na ho, ke tumhe woh sab mile jo tum deserve karti ho.<br><br>
+Happy Birthday, Zaifi.<br>
 Main yahin hoon, door sahi, lekin dil se hamesha tumhara. 🎂💌
 </p>
-<button onclick="goBack()">Back</button>
-</div>
+</div></div>
 
-<!-- SHAYARI -->
-<div class="page" id="shayari">
-<h2>🌹 Shayari</h2>
-<p>
-تیری صورت سے ہے عالم میں بہاروں کو ثبات<br>
-تیری آنکھوں کے سوا دنیا میں رکھا کیا ہے
-</p>
-<button onclick="goBack()">Back</button>
-</div>
-
-<!-- MEMORIES -->
-<div class="page" id="memories">
-<h2>💌 Our Memories</h2>
-<p>First time I saw you... I felt calm.</p>
-<button onclick="goBack()">Back</button>
-</div>
-
-<!-- MARRY -->
-<div class="page" id="marry">
-<h2>💍 Marry Me Someday</h2>
-<p>Not today. Not tomorrow. But someday, when life is kind.</p>
-<button onclick="goBack()">Back</button>
-</div>
-
-<!-- SONGS -->
-<div class="page" id="songs">
-<h2>🎵 Our Songs</h2>
-<button onclick="playSong('<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3vkCueOmm7xQDoJ17W1Pm3?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>')">Play Song</button>
-<button onclick="goBack()">Back</button>
-</div>
-
-<audio id="audioPlayer"></audio>
+<!-- ADD REMAINING MODALS SIMILARLY -->
 
 <script>
-function checkPass(){
-  if(document.getElementById("pass").value === "kamilovezaifi"){
-    showPage("valentine");
-  } else {
-    alert("Wrong password 🤭");
+function checkPassword(){
+  let p=document.getElementById("pass").value;
+  if(p=="kamilovezaifi"){
+    document.getElementById("loginPage").style.display="none";
+    document.getElementById("mainHub").style.display="block";
+  }else{
+    alert("Wrong Password 💔");
   }
 }
 
-function showPage(id){
-  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-  document.getElementById(id).style.display="block";
+function openModal(id){
+  document.getElementById(id).style.display="flex";
 }
 
-function goBack(){
-  showPage("menu");
+function closeModal(id){
+  document.getElementById(id).style.display="none";
 }
 
-function goToMenu(){
-  showPage("menu");
+function startMusic(){
+  document.getElementById("bgMusic").play();
 }
 
-const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover",()=>{
-  noBtn.style.position="absolute";
-  noBtn.style.top=Math.random()*80+"%";
-  noBtn.style.left=Math.random()*80+"%";
-});
-
-function playSong(src){
-  const player=document.getElementById("audioPlayer");
-  player.src=src;
-  player.play();
+function playOtherSong(file){
+  let audio=document.getElementById("otherSong");
+  audio.src=file;
+  audio.play();
 }
 </script>
-
 </body>
 </html>
