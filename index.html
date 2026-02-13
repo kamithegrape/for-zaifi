@@ -120,6 +120,94 @@ LOVE YOU THE MOST
 and i tried to make something different this time seekh raha ahista ahista so if there're any mistakes please maaf kar dena hehe
 LOVE YOU ZAIFI 🫶🏼. 🎂💌</p>
 </div>
+<!-- Audio Player -->
+<audio id="musicPlayer"></audio>
+
+<!-- Now Playing Text -->
+<p id="nowPlaying" style="text-align:center; font-weight:bold; margin-top:20px;">
+  🎵 Select a memory to play
+</p>
+
+<!-- Picture Gallery -->
+<div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px;">
+
+  <!-- 1 -->
+  <div style="text-align:center;">
+    <img src="pic1.jpg" 
+         onclick="playSong(this, 'mylove.mp3', 'My Love Mine All Mine')" 
+         class="music-img">
+    <p>My Love Mine All Mine</p>
+  </div>
+
+  <!-- 2 -->
+  <div style="text-align:center;">
+    <img src="pic2.jpg" 
+         onclick="playSong(this, 'sailor.mp3', 'Sailor Song')" 
+         class="music-img">
+    <p>Sailor Song</p>
+  </div>
+
+  <!-- 3 -->
+  <div style="text-align:center;">
+    <img src="pic3.jpg" 
+         onclick="playSong(this, 'dekha.mp3', 'Dekha Hi Nahi')" 
+         class="music-img">
+    <p>Dekha Hi Nahi</p>
+  </div>
+
+  <!-- 4 -->
+  <div style="text-align:center;">
+    <img src="pic4.jpg" 
+         onclick="playSong(this, 'tuaisa.mp3', 'Tu Aisa Kaise Hai')" 
+         class="music-img">
+    <p>Tu Aisa Kaise Hai</p>
+  </div>
+
+</div>
+
+<style>
+.music-img {
+  width:150px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.music-img.active {
+  box-shadow:0 0 25px pink;
+  transform:scale(1.05);
+}
+</style>
+
+<script>
+const player = document.getElementById("musicPlayer");
+const nowPlaying = document.getElementById("nowPlaying");
+let currentImage = null;
+
+function playSong(img, file, name) {
+
+  // Pause if same image clicked again
+  if (currentImage === img && !player.paused) {
+    player.pause();
+    img.classList.remove("active");
+    nowPlaying.innerHTML = "⏸ Paused: " + name;
+    return;
+  }
+
+  // Remove glow from previous
+  if (currentImage) {
+    currentImage.classList.remove("active");
+  }
+
+  currentImage = img;
+  img.classList.add("active");
+
+  player.src = file;
+  player.play();
+
+  nowPlaying.innerHTML = "🎵 Now Playing: " + name;
+}
+</script>
 
 <!-- Section 3: Shayari Section -->
 <div class="section hidden" id="section3">
@@ -288,6 +376,7 @@ for(let i=0;i<20;i++){
 
 </body>
 </html>
+
 
 
 
