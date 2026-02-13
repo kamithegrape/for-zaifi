@@ -124,7 +124,7 @@ LOVE YOU ZAIFI 🫶🏼. 🎂💌</p>
 <!-- MUSIC SECTION -->
 
 <!-- Audio Player -->
-<audio id="musicPlayer"></audio>
+<audio id="musicPlayer" preload="auto"></audio>
 
 <!-- Now Playing Text -->
 <p id="nowPlaying" style="text-align:center; font-weight:bold; margin-top:20px;">
@@ -181,7 +181,7 @@ let currentImage = null;
 
 function playSong(img, file, name) {
 
-  // If same image clicked → pause
+  // Stop if same image clicked
   if (currentImage === img && !player.paused) {
     player.pause();
     img.classList.remove("active");
@@ -189,7 +189,7 @@ function playSong(img, file, name) {
     return;
   }
 
-  // Remove glow from previous
+  // Remove previous glow
   if (currentImage) {
     currentImage.classList.remove("active");
   }
@@ -197,17 +197,24 @@ function playSong(img, file, name) {
   currentImage = img;
   img.classList.add("active");
 
+  // IMPORTANT FIX
   player.pause();
+  player.currentTime = 0;
   player.src = file;
   player.load();
 
-  player.play().then(() => {
-    nowPlaying.innerHTML = "🎵 Now Playing: " + name;
-  }).catch(err => {
-    console.log(err);
-  });
+  // Force play after slight delay (fix for GitHub + mobile)
+  setTimeout(() => {
+    player.play().then(() => {
+      nowPlaying.innerHTML = "🎵 Now Playing: " + name;
+    }).catch(error => {
+      console.log("Playback failed:", error);
+      alert("Tap the picture again to play ❤️");
+    });
+  }, 200);
 }
 </script>
+
 
 <!-- Section 3: Shayari Section -->
 <div class="section" id="section3">
@@ -376,6 +383,7 @@ for(let i=0;i<20;i++){
 
 </body>
 </html>
+
 
 
 
