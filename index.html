@@ -349,6 +349,154 @@ function playSong(img, file, name) {
     <source src="memory.mp4" type="video/mp4">
   </video>
 </div>
+<!-- 💖 LOVE BALLOON GAME -->
+<div style="text-align:center; margin-top:80px;">
+  <h1>🎈 Pop The Love Balloons 🎈</h1>
+  <p>Pop all balloons to unlock something special 💕</p>
+  <h3 id="scoreBoard">Balloons Popped: 0 / 12</h3>
+</div>
+
+<div id="balloonContainer" style="
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  margin-top:40px;
+  position:relative;
+"></div>
+
+<p id="loveMessage" style="
+  text-align:center;
+  font-size:20px;
+  margin-top:40px;
+  font-weight:bold;
+  min-height:40px;
+"></p>
+
+<div id="secretLetter" style="
+  display:none;
+  text-align:center;
+  margin-top:50px;
+  padding:30px;
+  background:rgba(255,192,203,0.15);
+  border-radius:20px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:18px;
+">
+  💌 <b>Secret Unlocked...</b><br><br>
+  Zaifi,<br><br>
+  If you popped every balloon… it means you stayed till the end.<br>
+  And if you stayed till the end… maybe there’s still a little us left.<br><br>
+  I don’t need grand gestures.  
+  Just one more chai. One more walk. One more chance.<br><br>
+  Always yours,<br>
+  Kamran 🍇
+</div>
+
+<style>
+.balloon {
+  width:90px;
+  height:110px;
+  background:radial-gradient(circle at 30% 30%, pink, hotpink);
+  border-radius:50% 50% 45% 45%;
+  position:relative;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.balloon:after {
+  content:"";
+  position:absolute;
+  width:2px;
+  height:40px;
+  background:#555;
+  bottom:-40px;
+  left:50%;
+}
+
+.balloon:hover {
+  transform:scale(1.1);
+}
+
+.pop {
+  transform:scale(0);
+  opacity:0;
+}
+
+/* Sparkle particles */
+.sparkle {
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+  animation: sparkleAnim 0.8s ease-out forwards;
+}
+
+@keyframes sparkleAnim {
+  from { transform:scale(1); opacity:1; }
+  to { transform:translateY(-40px) scale(0); opacity:0; }
+}
+</style>
+
+<script>
+const messages = [
+"💖 You are still my favorite person.",
+"😂 Remember my DAILY DOSE?",
+"🌸 You looked like peace.",
+"☕ Chai with you > everything.",
+"💍 If life gives us one more chance…",
+"🌙 You’re still in my duas.",
+"😌 Who fell first?",
+"🎶 This site is proof I care.",
+"✨ Smile right now please.",
+"🥹 I still remember your eyes."
+];
+
+const container = document.getElementById("balloonContainer");
+const messageBox = document.getElementById("loveMessage");
+const scoreBoard = document.getElementById("scoreBoard");
+const secretLetter = document.getElementById("secretLetter");
+
+let poppedCount = 0;
+const totalBalloons = 12;
+
+for (let i = 0; i < totalBalloons; i++) {
+  const balloon = document.createElement("div");
+  balloon.className = "balloon";
+
+  balloon.onclick = function (e) {
+    if (balloon.classList.contains("pop")) return;
+
+    balloon.classList.add("pop");
+
+    // Sparkle effect
+    for (let s = 0; s < 8; s++) {
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      sparkle.style.left = e.offsetX + "px";
+      sparkle.style.top = e.offsetY + "px";
+      balloon.appendChild(sparkle);
+
+      setTimeout(() => sparkle.remove(), 800);
+    }
+
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    messageBox.innerHTML = randomMessage;
+
+    poppedCount++;
+    scoreBoard.innerHTML = "Balloons Popped: " + poppedCount + " / " + totalBalloons;
+
+    if (poppedCount === totalBalloons) {
+      secretLetter.style.display = "block";
+    }
+  };
+
+  container.appendChild(balloon);
+}
+</script>
 
 
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
@@ -383,6 +531,7 @@ for(let i=0;i<20;i++){
 
 </body>
 </html>
+
 
 
 
