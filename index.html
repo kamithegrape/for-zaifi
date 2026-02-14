@@ -538,6 +538,104 @@ for (let i = 0; i < totalBalloons; i++) {
   </p>
 
 </div>
+<!-- 📸 POLAROID MEMORY WALL -->
+
+<div style="text-align:center; margin-top:100px;">
+  <h1>📸 Our Memory Wall</h1>
+  <p>Moments that still feel warm.</p>
+</div>
+
+<div class="polaroid-wall">
+
+  <div class="polaroid">
+    <img src="img1.jpg">
+    <p>The day everything changed.</p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img2.jpg">
+    <p> You laughing at my nonsense. </p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img3.jpg">
+    <p>Choti ho.</p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img4.jpg">
+    <p>Cutie .</p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img5.jpg">
+    <p> hehe.</p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img6.jpg">
+    <p>Still one of my favorite faces.</p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img7.jpg">
+    <p>Fit Check.</p>
+  </div>
+
+  <div class="polaroid">
+    <img src="img8.jpg">
+    <p>But it meant everything.</p>
+  </div>
+
+</div>
+
+<style>
+.polaroid-wall {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+  margin-top:50px;
+  padding:20px;
+}
+
+.polaroid {
+  background:white;
+  padding:15px 15px 40px 15px;
+  width:220px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  border-radius:10px;
+  transition:0.3s ease;
+  text-align:center;
+  position:relative;
+}
+
+.polaroid img {
+  width:100%;
+  border-radius:8px;
+}
+
+.polaroid p {
+  margin-top:15px;
+  font-size:14px;
+  font-style:italic;
+}
+
+.polaroid:hover {
+  transform:scale(1.08) rotate(0deg);
+  box-shadow:0 15px 35px rgba(255,105,180,0.4);
+}
+</style>
+
+<script>
+// Random rotation for each polaroid
+const polaroids = document.querySelectorAll('.polaroid');
+
+polaroids.forEach((card) => {
+  const randomRotate = Math.floor(Math.random() * 10) - 5;
+  card.style.transform = "rotate(" + randomRotate + "deg)";
+});
+</script>
 
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
 
@@ -571,6 +669,7 @@ for(let i=0;i<20;i++){
 
 </body>
 </html>
+
 
 
 
