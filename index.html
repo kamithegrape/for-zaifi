@@ -636,107 +636,106 @@ polaroids.forEach((card) => {
   card.style.transform = "rotate(" + randomRotate + "deg)";
 });
 </script>
+<!-- 🌅 MOBILE FRIENDLY CINEMA SCENE -->
 
-<!-- 🌅 CINEMATIC SILHOUETTE SCENE -->
+<section class="cinema">
+  <div class="sky"></div>
 
-<div class="cinema-scene">
-  <div class="silhouette boy"></div>
-  <div class="silhouette girl"></div>
-  <div class="cinema-text">And somehow… we still found our way back.</div>
-</div>
+  <div class="person boy"></div>
+  <div class="person girl"></div>
+
+  <div class="cinema-text">
+    And somehow… we still found our way back.
+  </div>
+</section>
 
 <style>
-.cinema-scene {
+.cinema {
   position:relative;
-  height:400px;
-  margin-top:120px;
+  height:60vh;
+  min-height:400px;
+  margin-top:80px;
   overflow:hidden;
-  border-radius:20px;
-
-  /* 🌅 Sunset sky */
-  background: linear-gradient(to top, #2c003e, #ff758c, #ffb199);
-  animation: subtleZoom 12s ease-in-out forwards;
-}
-
-/* Slow cinematic zoom */
-@keyframes subtleZoom {
-  from { background-size:100% 100%; }
-  to { background-size:110% 110%; }
+  border-radius:25px;
+  background: linear-gradient(to top, #3a003d, #ff6f91, #ffc75f);
 }
 
 /* Silhouettes */
-.silhouette {
+.person {
   position:absolute;
-  bottom:40px;
-  width:80px;
-  height:160px;
+  bottom:60px;
+  width:50px;
+  height:120px;
   background:black;
-  border-radius:40px 40px 20px 20px;
-  opacity:0.9;
-  transition: all 6s ease;
+  border-radius:30px;
+  transition: transform 5s ease;
 }
 
-/* heads */
-.silhouette::before {
+/* Heads */
+.person::before {
   content:"";
   position:absolute;
-  width:70px;
-  height:70px;
+  width:45px;
+  height:45px;
   background:black;
   border-radius:50%;
-  top:-50px;
-  left:5px;
+  top:-35px;
+  left:2px;
 }
 
-/* starting positions */
-.boy { left:-120px; }
-.girl { right:-120px; }
+/* Starting positions */
+.boy {
+  left:-60px;
+}
+
+.girl {
+  right:-60px;
+}
 
 /* Text */
 .cinema-text {
   position:absolute;
-  bottom:60px;
+  bottom:25px;
   width:100%;
   text-align:center;
   color:white;
-  font-size:20px;
-  letter-spacing:1px;
+  font-size:18px;
+  padding:0 20px;
   opacity:0;
   transition: opacity 3s ease;
 }
 
-/* Heartbeat glow effect */
+/* Heartbeat glow */
 .glow {
-  box-shadow:0 0 40px rgba(255, 200, 200, 0.6);
-  animation: heartbeat 1.5s ease-in-out infinite;
+  animation: heartbeat 2s infinite;
 }
 
 @keyframes heartbeat {
-  0% { box-shadow:0 0 20px rgba(255,200,200,0.4); }
-  50% { box-shadow:0 0 60px rgba(255,200,200,0.8); }
-  100% { box-shadow:0 0 20px rgba(255,200,200,0.4); }
+  0% { box-shadow:0 0 20px rgba(255,255,255,0.2); }
+  50% { box-shadow:0 0 50px rgba(255,255,255,0.6); }
+  100% { box-shadow:0 0 20px rgba(255,255,255,0.2); }
 }
 </style>
 
 <script>
-window.addEventListener("load", function(){
+window.addEventListener("load", function() {
 
   const boy = document.querySelector(".boy");
   const girl = document.querySelector(".girl");
   const text = document.querySelector(".cinema-text");
-  const scene = document.querySelector(".cinema-scene");
+  const scene = document.querySelector(".cinema");
 
-  // Start walking slowly
+  // Walk toward center using transform (mobile safe)
   setTimeout(() => {
-    boy.style.left = "38%";
-    girl.style.right = "38%";
-  }, 800);
+    boy.style.transform = "translateX(45vw)";
+    girl.style.transform = "translateX(-45vw)";
+  }, 500);
 
-  // When they meet → glow + text fade in
+  // Glow + text fade in
   setTimeout(() => {
     scene.classList.add("glow");
     text.style.opacity = "1";
-  }, 6000);
+  }, 5500);
 
 });
 </script>
