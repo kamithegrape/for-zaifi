@@ -718,24 +718,33 @@ polaroids.forEach((card) => {
 </style>
 
 <script>
-window.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function() {
 
   const boy = document.querySelector(".boy");
   const girl = document.querySelector(".girl");
   const text = document.querySelector(".cinema-text");
   const scene = document.querySelector(".cinema");
 
-  // Walk toward center using transform (mobile safe)
-  setTimeout(() => {
-    boy.style.transform = "translateX(45vw)";
-    girl.style.transform = "translateX(-45vw)";
-  }, 500);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
 
-  // Glow + text fade in
-  setTimeout(() => {
-    scene.classList.add("glow");
-    text.style.opacity = "1";
-  }, 5500);
+        // Start movement
+        boy.style.transform = "translateX(40vw)";
+        girl.style.transform = "translateX(-40vw)";
+
+        // After they meet
+        setTimeout(() => {
+          scene.classList.add("glow");
+          text.style.opacity = "1";
+        }, 5000);
+
+        observer.disconnect(); // run only once
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(scene);
 
 });
 </script>
