@@ -636,89 +636,7 @@ polaroids.forEach((card) => {
   card.style.transform = "rotate(" + randomRotate + "deg)";
 });
 </script>
-<!-- 💞 RUN & HUG ANIMATION -->
 
-<div class="love-scene">
-  <div class="boy"></div>
-  <div class="girl"></div>
-  <div class="heart">💖</div>
-</div>
-
-<style>
-.love-scene {
-  position:relative;
-  height:300px;
-  margin-top:120px;
-  overflow:hidden;
-}
-
-/* Boy */
-.boy, .girl {
-  position:absolute;
-  bottom:0;
-  width:40px;
-  height:80px;
-}
-
-/* Stick body */
-.boy::before, .girl::before {
-  content:"";
-  position:absolute;
-  width:6px;
-  height:50px;
-  background:black;
-  left:17px;
-  top:20px;
-}
-
-/* Head */
-.boy::after, .girl::after {
-  content:"";
-  position:absolute;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:black;
-  left:5px;
-  top:0;
-}
-
-.boy {
-  left:-60px;
-  animation: runBoy 4s forwards;
-}
-
-.girl {
-  right:-60px;
-  animation: runGirl 4s forwards;
-}
-
-/* Heart */
-.heart {
-  position:absolute;
-  bottom:120px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:30px;
-  opacity:0;
-  animation: showHeart 1s 4s forwards;
-}
-
-/* Animations */
-
-@keyframes runBoy {
-  to { left:45%; }
-}
-
-@keyframes runGirl {
-  to { right:45%; }
-}
-
-@keyframes showHeart {
-  from { opacity:0; transform:translateX(-50%) scale(0); }
-  to { opacity:1; transform:translateX(-50%) scale(1.5); }
-}
-</style>
 
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
 
@@ -752,6 +670,7 @@ for(let i=0;i<20;i++){
 
 </body>
 </html>
+
 
 
 
