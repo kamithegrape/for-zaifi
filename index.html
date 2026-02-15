@@ -637,7 +637,109 @@ polaroids.forEach((card) => {
 });
 </script>
 
+<!-- 🌅 CINEMATIC SILHOUETTE SCENE -->
 
+<div class="cinema-scene">
+  <div class="silhouette boy"></div>
+  <div class="silhouette girl"></div>
+  <div class="cinema-text">And somehow… we still found our way back.</div>
+</div>
+
+<style>
+.cinema-scene {
+  position:relative;
+  height:400px;
+  margin-top:120px;
+  overflow:hidden;
+  border-radius:20px;
+
+  /* 🌅 Sunset sky */
+  background: linear-gradient(to top, #2c003e, #ff758c, #ffb199);
+  animation: subtleZoom 12s ease-in-out forwards;
+}
+
+/* Slow cinematic zoom */
+@keyframes subtleZoom {
+  from { background-size:100% 100%; }
+  to { background-size:110% 110%; }
+}
+
+/* Silhouettes */
+.silhouette {
+  position:absolute;
+  bottom:40px;
+  width:80px;
+  height:160px;
+  background:black;
+  border-radius:40px 40px 20px 20px;
+  opacity:0.9;
+  transition: all 6s ease;
+}
+
+/* heads */
+.silhouette::before {
+  content:"";
+  position:absolute;
+  width:70px;
+  height:70px;
+  background:black;
+  border-radius:50%;
+  top:-50px;
+  left:5px;
+}
+
+/* starting positions */
+.boy { left:-120px; }
+.girl { right:-120px; }
+
+/* Text */
+.cinema-text {
+  position:absolute;
+  bottom:60px;
+  width:100%;
+  text-align:center;
+  color:white;
+  font-size:20px;
+  letter-spacing:1px;
+  opacity:0;
+  transition: opacity 3s ease;
+}
+
+/* Heartbeat glow effect */
+.glow {
+  box-shadow:0 0 40px rgba(255, 200, 200, 0.6);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% { box-shadow:0 0 20px rgba(255,200,200,0.4); }
+  50% { box-shadow:0 0 60px rgba(255,200,200,0.8); }
+  100% { box-shadow:0 0 20px rgba(255,200,200,0.4); }
+}
+</style>
+
+<script>
+window.addEventListener("load", function(){
+
+  const boy = document.querySelector(".boy");
+  const girl = document.querySelector(".girl");
+  const text = document.querySelector(".cinema-text");
+  const scene = document.querySelector(".cinema-scene");
+
+  // Start walking slowly
+  setTimeout(() => {
+    boy.style.left = "38%";
+    girl.style.right = "38%";
+  }, 800);
+
+  // When they meet → glow + text fade in
+  setTimeout(() => {
+    scene.classList.add("glow");
+    text.style.opacity = "1";
+  }, 6000);
+
+});
+</script>
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
 
 <script>
