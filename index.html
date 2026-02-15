@@ -729,17 +729,27 @@ document.addEventListener("DOMContentLoaded", function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
 
-        // Start movement
-        boy.style.transform = "translateX(40vw)";
-        girl.style.transform = "translateX(-40vw)";
+        // Walk toward each other
+        boy.style.transform = "translateX(42vw)";
+        girl.style.transform = "translateX(-42vw)";
 
-        // After they meet
+        // After walking → hug motion
         setTimeout(() => {
-          scene.classList.add("glow");
-          text.style.opacity = "1";
-        }, 5000);
 
-        observer.disconnect(); // run only once
+          // Slight overlap
+          boy.style.transform = "translateX(45vw) rotate(5deg)";
+          girl.style.transform = "translateX(-45vw) rotate(-5deg)";
+
+          // Glow stronger
+          scene.style.boxShadow = "0 0 80px rgba(255,255,255,0.6)";
+          scene.style.transition = "box-shadow 2s ease";
+
+          // Fade text
+          text.style.opacity = "1";
+
+        }, 4500);
+
+        observer.disconnect();
       }
     });
   }, { threshold: 0.5 });
