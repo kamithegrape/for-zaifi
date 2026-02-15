@@ -715,8 +715,6 @@ polaroids.forEach((card) => {
   50% { box-shadow:0 0 50px rgba(255,255,255,0.6); }
   100% { box-shadow:0 0 20px rgba(255,255,255,0.2); }
 }
-</style>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -729,25 +727,29 @@ document.addEventListener("DOMContentLoaded", function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
 
-        // Walk toward each other
-        boy.style.transform = "translateX(42vw)";
-        girl.style.transform = "translateX(-42vw)";
+        const sceneWidth = scene.offsetWidth;
+        const personWidth = boy.offsetWidth;
 
-        // After walking → hug motion
+        // Calculate exact center
+        const centerPosition = (sceneWidth / 2) - (personWidth / 2);
+
+        // Move both to center
+        boy.style.left = centerPosition + "px";
+        girl.style.right = centerPosition + "px";
+
+        boy.style.transition = "left 4s ease";
+        girl.style.transition = "right 4s ease";
+
+        // After walking → slight lean for hug
         setTimeout(() => {
+          boy.style.transform = "rotate(6deg)";
+          girl.style.transform = "rotate(-6deg)";
 
-          // Slight overlap
-          boy.style.transform = "translateX(45vw) rotate(5deg)";
-          girl.style.transform = "translateX(-45vw) rotate(-5deg)";
-
-          // Glow stronger
           scene.style.boxShadow = "0 0 80px rgba(255,255,255,0.6)";
           scene.style.transition = "box-shadow 2s ease";
 
-          // Fade text
           text.style.opacity = "1";
-
-        }, 4500);
+        }, 4200);
 
         observer.disconnect();
       }
