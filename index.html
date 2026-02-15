@@ -637,6 +637,144 @@ polaroids.forEach((card) => {
 });
 </script>
 
+ <!-- 🌅 CINEMATIC LOVE SCENE -->
+
+<div class="love-scene">
+  <div class="boy"></div>
+  <div class="girl"></div>
+  <div class="heart">💖</div>
+</div>
+
+<style>
+.love-scene {
+  position:relative;
+  height:350px;
+  margin-top:120px;
+  overflow:hidden;
+
+  /* 🌅 Sunset Gradient */
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 400% 400%;
+  animation: sunsetMove 12s ease infinite;
+  border-radius:20px;
+}
+
+/* Moving gradient */
+@keyframes sunsetMove {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+/* Rounded cartoon characters */
+.boy, .girl {
+  position:absolute;
+  bottom:40px;
+  width:60px;
+  height:100px;
+}
+
+/* Body */
+.boy::before, .girl::before {
+  content:"";
+  position:absolute;
+  width:40px;
+  height:60px;
+  background:#333;
+  border-radius:20px;
+  left:10px;
+  top:40px;
+}
+
+/* Head */
+.boy::after, .girl::after {
+  content:"";
+  position:absolute;
+  width:50px;
+  height:50px;
+  background:#ffdbac;
+  border-radius:50%;
+  left:5px;
+  top:0;
+}
+
+/* Girl hair */
+.girl::after {
+  background: radial-gradient(circle at 50% 40%, #ffdbac 40%, #222 41%);
+}
+
+/* Starting positions */
+.boy {
+  left:-80px;
+  animation: runBoy 4s forwards ease-in-out;
+}
+
+.girl {
+  right:-80px;
+  animation: runGirl 4s forwards ease-in-out;
+}
+
+/* Running animations */
+@keyframes runBoy {
+  0% { left:-80px; }
+  80% { left:45%; }
+  100% { left:45%; }
+}
+
+@keyframes runGirl {
+  0% { right:-80px; }
+  80% { right:45%; }
+  100% { right:45%; }
+}
+
+/* Heart */
+.heart {
+  position:absolute;
+  bottom:180px;
+  left:50%;
+  transform:translateX(-50%) scale(0);
+  font-size:40px;
+  opacity:0;
+  animation: heartPop 1s 4s forwards;
+}
+
+/* Heart pop */
+@keyframes heartPop {
+  0% { transform:translateX(-50%) scale(0); opacity:0; }
+  50% { transform:translateX(-50%) scale(1.5); opacity:1; }
+  100% { transform:translateX(-50%) scale(1.2); opacity:1; }
+}
+
+/* Slight bounce when they meet */
+.boy, .girl {
+  animation-delay:0s;
+}
+
+.love-scene::after {
+  content:"";
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:20px;
+  background:rgba(0,0,0,0.1);
+  border-radius:50%;
+}
+</style>
+
+<script>
+// Add bounce when they meet
+setTimeout(() => {
+  document.querySelector('.boy').style.transform = "translateY(-10px)";
+  document.querySelector('.girl').style.transform = "translateY(-10px)";
+  
+  setTimeout(() => {
+    document.querySelector('.boy').style.transform = "translateY(0)";
+    document.querySelector('.girl').style.transform = "translateY(0)";
+  }, 300);
+}, 3800);
+</script>
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
 
 <script>
