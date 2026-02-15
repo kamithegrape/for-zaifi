@@ -636,117 +636,90 @@ polaroids.forEach((card) => {
   card.style.transform = "rotate(" + randomRotate + "deg)";
 });
 </script>
-<!-- 🌅 CINEMATIC LOVE SCENE (MOBILE FIXED) -->
+<!-- 💞 RUN & HUG ANIMATION -->
 
 <div class="love-scene">
-  <div class="boy" id="boy"></div>
-  <div class="girl" id="girl"></div>
-  <div class="heart" id="heart">💖</div>
+  <div class="boy"></div>
+  <div class="girl"></div>
+  <div class="heart">💖</div>
 </div>
 
 <style>
 .love-scene {
   position:relative;
-  height:350px;
+  height:300px;
   margin-top:120px;
   overflow:hidden;
-  border-radius:20px;
-
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-  background-size: 400% 400%;
-  animation: sunsetMove 12s ease infinite;
 }
 
-@keyframes sunsetMove {
-  0% { background-position:0% 50%; }
-  50% { background-position:100% 50%; }
-  100% { background-position:0% 50%; }
-}
-
-/* Characters */
+/* Boy */
 .boy, .girl {
   position:absolute;
-  bottom:40px;
-  width:60px;
-  height:100px;
-  transition: all 3s ease-in-out;
+  bottom:0;
+  width:40px;
+  height:80px;
 }
 
-/* Body */
+/* Stick body */
 .boy::before, .girl::before {
   content:"";
   position:absolute;
-  width:40px;
-  height:60px;
-  background:#333;
-  border-radius:20px;
-  left:10px;
-  top:40px;
+  width:6px;
+  height:50px;
+  background:black;
+  left:17px;
+  top:20px;
 }
 
 /* Head */
 .boy::after, .girl::after {
   content:"";
   position:absolute;
-  width:50px;
-  height:50px;
-  background:#ffdbac;
+  width:30px;
+  height:30px;
   border-radius:50%;
+  background:black;
   left:5px;
   top:0;
 }
 
-/* Girl hair */
-.girl::after {
-  background: radial-gradient(circle at 50% 40%, #ffdbac 40%, #222 41%);
+.boy {
+  left:-60px;
+  animation: runBoy 4s forwards;
 }
 
-/* Start positions */
-.boy { left:-80px; }
-.girl { right:-80px; }
+.girl {
+  right:-60px;
+  animation: runGirl 4s forwards;
+}
 
 /* Heart */
 .heart {
   position:absolute;
-  bottom:180px;
+  bottom:120px;
   left:50%;
-  transform:translateX(-50%) scale(0);
-  font-size:40px;
+  transform:translateX(-50%);
+  font-size:30px;
   opacity:0;
-  transition: all 0.8s ease;
+  animation: showHeart 1s 4s forwards;
+}
+
+/* Animations */
+
+@keyframes runBoy {
+  to { left:45%; }
+}
+
+@keyframes runGirl {
+  to { right:45%; }
+}
+
+@keyframes showHeart {
+  from { opacity:0; transform:translateX(-50%) scale(0); }
+  to { opacity:1; transform:translateX(-50%) scale(1.5); }
 }
 </style>
 
-<script>
-window.addEventListener("load", function() {
-
-  const boy = document.getElementById("boy");
-  const girl = document.getElementById("girl");
-  const heart = document.getElementById("heart");
-
-  // Start running after slight delay
-  setTimeout(() => {
-    boy.style.left = "45%";
-    girl.style.right = "45%";
-  }, 500);
-
-  // Bounce + heart pop
-  setTimeout(() => {
-    boy.style.transform = "translateY(-12px)";
-    girl.style.transform = "translateY(-12px)";
-
-    heart.style.opacity = "1";
-    heart.style.transform = "translateX(-50%) scale(1.4)";
-
-    setTimeout(() => {
-      boy.style.transform = "translateY(0)";
-      girl.style.transform = "translateY(0)";
-    }, 300);
-
-  }, 3500);
-
-});
-</script>
 <audio id="bgMusic" src="https://open.spotify.com/track/3vkCueOmm7xQDoJ17W1Pm3?si=9fdc9bc4efd4412f" autoplay loop></audio>
 
 <script>
@@ -779,6 +752,7 @@ for(let i=0;i<20;i++){
 
 </body>
 </html>
+
 
 
 
