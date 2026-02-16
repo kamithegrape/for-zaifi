@@ -1,71 +1,138 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kami's Life Story</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
     body {
+        background-color: #fff8f0;
+        color: #333;
+        font-family: 'Poppins', sans-serif;
         margin: 0;
-        background: url('https://i.imgur.com/U6e5lYr.jpg') no-repeat center center fixed;
-        background-size: cover;
-        font-family: 'Dancing Script', cursive;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         overflow: hidden;
     }
-    .book {
-        width: 90%;
-        height: 90vh;
-        margin: 20px auto;
-    }
-    .page {
-        width: 100%;
-        height: 100%;
+
+    .book-container {
+        width: 600px;
+        max-width: 90%;
+        height: 80%;
+        background-color: #fffdf9;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         padding: 40px;
-        box-sizing: border-box;
-        background: rgba(255, 250, 240, 0.95);
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
-        font-size: 20px;
-        line-height: 1.6;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .page {
+        display: none;
+        line-height: 1.7;
+        font-size: 18px;
         overflow-y: auto;
+        flex-grow: 1;
     }
-    .title {
-        text-align: center;
-        font-size: 50px;
-        margin-top: 200px;
+
+    .page.active {
+        display: block;
     }
-    .subtitle {
-        text-align: center;
-        font-size: 24px;
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
         margin-top: 20px;
+    }
+
+    .nav-button {
+        background-color: #ffd1dc;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .nav-button:hover {
+        background-color: #ffb3c6;
     }
 </style>
 </head>
 <body>
-<audio id="piano" loop autoplay>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-<audio id="flip-sound">
-  <source src="https://www.myinstants.com/media/sounds/page-flip.mp3" type="audio/mpeg">
-</audio>
-<div class="book" id="book">
-  <div class="page title">Kami's Life Story<div class="subtitle">A Journey of Love, Growth, and Memories</div></div>
-  <div class="page">I was born into a world that was already moving, already demanding. Even as a kid, I felt the rhythm of life pressing against me, the quiet expectation to perform, to grow, to survive. School came first — FSc, matric — and I moved through it like a ghost sometimes, watching life happen around me, feeling a distance between me and the rest of the world. I learned early that life doesn’t pause for anyone. Nights were for reflection. Days were for action. I found solace in football, losing myself on the field from 8 to 10 PM, every strike, every goal, every pass like a small rebellion against the world that demanded more than I could always give.</div>
-  <div class="page">Some people come into your life quietly, and before you even realize it, they become the center of your story. For me, that person was Zaifi. It all started during COVID, in tuition. She had always been there, but quarantine kept everyone inside. When things opened up, she came back — and the first time I saw her eyes, I was done. There’s a line in Urdu: “Teri aankhon ke siwa dunya mein rakha kya hai.” What else is there in this world, except for your eyes? I fell in love instantly. There was no connection yet, just that invisible pull.</div>
-  <div class="page">In 10th grade, we began talking. Zoom first, Instagram next. I asked her to be my girlfriend. She said, “Kami, let’s just be friends. Because one of us will leave, and the other will forever be in heartbreak.” I told her, “I’ll never leave you.” I meant it. We met once, then broke up. I left tuition, thinking it was over. My father forced me back, angered and insistent. Going back changed everything. I watched her secretly until one day she called me over. She said, “Sorry.” I forgave her instantly. That same day, I held her hand for the first time.</div>
-  <div class="page">From then on, we met whenever we could. Before tuition, after tuition, under stars, holding hands as if the world paused for us. She became my best friend, my happiness. We had small rituals — kisses on cheeks, chocolates, lollipops, stars above, and whispers of safety. Those moments, small as they were, became everything. But life doesn’t follow scripts. Our relationship ended during 10th finals. We drifted, spoke every few months, then disappeared from each other’s lives. Ramadan 2024 brought her back. She had shifted to Pindi. She told her family, but her mother said: “First careers, then marriage. For now, you should not talk to each other.”</div>
-  <div class="page">After 12th, I disappeared for five months. She was the only one to message me — birthdays, results — small gestures that meant everything. When I returned, things had changed. December 30th, she ended everything. Months later, she told me: “Kami, I’ll be serious now. I don’t want you anymore. Stay away from my life.” I stayed away, but life had its own plan. On my sister’s wedding, she reached out again, asking about my sister, wanting to be my bsf. I could write pages about her, and I have. But even that would never capture it.</div>
-  <div class="page">They say if you knew it was the last time you’d hear someone’s voice, you’d memorize it. I didn’t. I still can’t recall exactly. The light on her face through the windshield, the engine hum, my heart racing — heavier, quieter. I told her I loved her. She whispered, “Just… take care of yourself, okay?” Then she drove off. No look back. Not even in the mirror. Sometimes I replay that moment. I can see her, feel the cold in my chest, the silence. You never know the last time… until it is.</div>
-  <div class="page">Even as life moved forward — jobs, work, money — a part of me stayed stuck. I started a job last February, now a year of experience, second company four months in, salary finally one lakh. But it cost me everything — health, emotions, a sense of self. I gave what I could to my family, to friends, to small pleasures. Yet without her, nothing felt right. Life looked fine to others — routine, work, friends, uni, achievements — but inside, I felt empty. Nights without sleep, music and cigarettes, memories replaying. I tried to move on. I tried to forget. I wanted to escape. Yet every crowd, every smile, every prayer, I searched for her.</div>
-  <div class="page">She made me better. She made me stronger. Friends said, “Bhai, ab shaadi hi kar lo, dono ajeeb ek jaise ho.” They were right. She stayed with me when I was at my lowest. She was my home, my peace. Tumhara dil sabse alag aur sabse khoobsurat hai. Keep praying, keep working hard for Air Force. I’m proud of you, meri officer. I am learning, slowly, to choose myself. To accept what was and what is. To let her be happy, even if that happiness isn’t with me.</div>
-  <div class="page">She will always be my first love, my favorite person, the chapter that shaped me, the quiet lesson in my life. Every achievement, every struggle, every mundane moment carries a shadow of her presence. And if life ever gives us another chance, in this life or the next, I’ll find her again. Always. I’ll always wish her well. I’ll always carry her in my heart. She is my first, my last, my home, my peace, my love. Even now, in moments of quiet, I sit with the past, with memories of tuition walks, after-school laughs, the stars above, chocolates shared, hands held.</div>
-  <div class="page">I feel the weight of every moment we ever had, and I understand that some love never ends, even when it must. I am tired, broken, moving, surviving, learning. I am everything and nothing. I am the boy who tried to be a free man, who wanted nothing but to love her, and yet lost her to life’s cruel rhythm. And still, I wake every day with the hope that somewhere, somehow, our paths will cross again, and I’ll see her smile, hear her voice, and everything will make sense once more. I love her. Always have, always will.</div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-<script>
-  const book = document.getElementById('book');
-  const flipSound = document.getElementById('flip-sound');$(".book").turn({ width: window.innerWidth * 0.9, height: window.innerHeight * 0.9, autoCenter: true, gradients: true, acceleration: true });
 
-$('.page').on('click', function(){ flipSound.play(); }); </script>
+<div class="book-container">
+    <div class="page active">
+        I was born into a world that was already moving, already demanding. Even as a kid, I felt the rhythm of life pressing against me, the quiet expectation to perform, to grow, to survive. School came first — FSc, matric — and I moved through it like a ghost sometimes, watching life happen around me, feeling a distance between me and the rest of the world. I learned early that life doesn’t pause for anyone. Nights were for reflection. Days were for action. I found solace in football, losing myself on the field from 8 to 10 PM, every strike, every goal, every pass like a small rebellion against the world that demanded more than I could always give. Sometimes, in the quiet, I felt like a dead man walking — alive but carrying the weight of things I couldn’t control.
+    </div>
+    <div class="page">
+        Some people come into your life quietly, and before you even realize it, they become the center of your story. For me, that person was Zaifi. It all started during COVID, in tuition. She had always been there, but quarantine kept everyone inside. When things opened up, she came back — and the first time I saw her eyes, I was done. There’s a line in Urdu: “Teri aankhon ke siwa dunya mein rakha kya hai.” What else is there in this world, except for your eyes? I fell in love instantly. There was no connection yet, just that invisible pull.
+    </div>
+    <div class="page">
+        In 10th grade, we began talking. Zoom first, Instagram next. I asked her to be my girlfriend. She said, “Kami, let’s just be friends. Because one of us will leave, and the other will forever be in heartbreak.” I told her, “I’ll never leave you.” I meant it. We met once, then broke up. I left tuition, thinking it was over. My father forced me back, angered and insistent. Going back changed everything. I watched her secretly until one day she called me over. She said, “Sorry.” I forgave her instantly. That same day, I held her hand for the first time.
+    </div>
+    <div class="page">
+        From then on, we met whenever we could. Before tuition, after tuition, under stars, holding hands as if the world paused for us. She became my best friend, my happiness. We had small rituals — kisses on cheeks, chocolates, lollipops, stars above, and whispers of safety. Those moments, small as they were, became everything. But life doesn’t follow scripts. Our relationship ended during 10th finals. We drifted, spoke every few months, then disappeared from each other’s lives. Ramadan 2024 brought her back. She had shifted to Pindi. She told her family, but her mother said: “First careers, then marriage. For now, you should not talk to each other.”
+    </div>
+    <div class="page">
+        After 12th, I disappeared for five months. She was the only one to message me — birthdays, results — small gestures that meant everything. When I returned, things had changed. December 30th, she ended everything. Months later, she told me: “Kami, I’ll be serious now. I don’t want you anymore. Stay away from my life.” I stayed away, but life had its own plan. On my sister’s wedding, she reached out again, asking about my sister, wanting to be my bsf. I could write pages about her, and I have. But even that would never capture it.
+    </div>
+    <div class="page">
+        They say if you knew it was the last time you’d hear someone’s voice, you’d memorize it. I didn’t. I still can’t recall exactly. The light on her face through the windshield, the engine hum, my heart racing — heavier, quieter. I told her I loved her. She whispered, “Just… take care of yourself, okay?” Then she drove off. No look back. Not even in the mirror. Sometimes I replay that moment. I can see her, feel the cold in my chest, the silence. You never know the last time… until it is.
+    </div>
+    <div class="page">
+        Zaifi, tumhari wapis na aane ki wajah main aaj tak samajh nahi paaya. Every night I ask myself, what did I do? Kya meri koi kami thi? Kya main itna bura hoon ke tum mujhse door rehna chahti ho? Main badalne ki bhi koshish kar raha hoon… par kabhi kabhi lagta hai ke shayad jitna bhi badal jaun, tum phir bhi wapis nahi aaogi. Even as life moved forward — jobs, work, money — a part of me stayed stuck. I started a job last February, now a year of experience, second company four months in, salary finally one lakh. But it cost me everything — health, emotions, a sense of self.
+    </div>
+    <div class="page">
+        I gave what I could to my family, to friends, to small pleasures. Yet without her, nothing felt right. Life looked fine to others — routine, work, friends, uni, achievements — but inside, I felt empty. Nights without sleep, music and cigarettes, memories replaying. I tried to move on. I tried to forget. I wanted to escape. Yet every crowd, every smile, every prayer, I searched for her. Even if it was dramatic, even if it made me feel weak, I couldn’t let go.
+    </div>
+    <div class="page">
+        She made me better. She made me stronger. Friends said, “Bhai, ab shaadi hi kar lo, dono ajeeb ek jaise ho.” They were right. She stayed with me when I was at my lowest. She was my home, my peace. Tumhara dil sabse alag aur sabse khoobsurat hai. Keep praying, keep working hard for Air Force. I’m proud of you, meri officer. I am learning, slowly, to choose myself. To accept what was and what is.
+    </div>
+    <div class="page">
+        To let her be happy, even if that happiness isn’t with me. She will always be my first love, my favorite person, the chapter that shaped me, the quiet lesson in my life. Every achievement, every struggle, every mundane moment carries a shadow of her presence. And if life ever gives us another chance, in this life or the next, I’ll find her again. Always. I’ll always wish her well. I’ll always carry her in my heart. She is my first, my last, my home, my peace, my love.
+    </div>
+    <div class="page">
+        Even now, in moments of quiet, I sit with the past, with memories of tuition walks, after-school laughs, the stars above, chocolates shared, hands held. I feel the weight of every moment we ever had, and I understand that some love never ends, even when it must. I am tired, broken, moving, surviving, learning. I am everything and nothing. I am the boy who tried to be a free man, who wanted nothing but to love her, and yet lost her to life’s cruel rhythm.
+    </div>
+    <div class="page">
+        And still, I wake every day with the hope that somewhere, somehow, our paths will cross again, and I’ll see her smile, hear her voice, and everything will make sense once more. I love her. Always have, always will. And I will carry that love — quiet, relentless, eternal — through every chapter of the life I am still living.
+    </div>
+
+    <div class="navigation">
+        <button class="nav-button" id="prev">Previous</button>
+        <button class="nav-button" id="next">Next</button>
+    </div>
+</div>
+
+<script>
+    const pages = document.querySelectorAll('.page');
+    let currentPage = 0;
+
+    document.getElementById('next').addEventListener('click', () => {
+        if(currentPage < pages.length - 1){
+            pages[currentPage].classList.remove('active');
+            currentPage++;
+            pages[currentPage].classList.add('active');
+        }
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+        if(currentPage > 0){
+            pages[currentPage].classList.remove('active');
+            currentPage--;
+            pages[currentPage].classList.add('active');
+        }
+    });
+</script>
 
 </body>
 </html>
