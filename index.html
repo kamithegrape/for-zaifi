@@ -361,14 +361,14 @@ function playSong(img, file, name) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Story</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Garamond', serif;
     background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    color: #333;
 }
 
 /* Hero Section */
@@ -379,7 +379,6 @@ body {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    color: #333;
 }
 
 .hero h1 {
@@ -405,34 +404,62 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
-/* Book Frame */
-.book-frame {
+/* Book Container */
+.book-container {
     width: 390px;
+    max-width: 90%;
     height: 650px;
     margin: auto;
-    border-radius: 30px;
-    overflow: hidden;
+    background: rgba(255, 250, 240, 0.95);
     box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    border-radius: 30px;
+    padding: 30px;
+    overflow-y: auto;
+    line-height: 1.7;
+    font-size: 18px;
     border: 12px solid #111;
-    background: black;
 }
 
-.book-frame iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+/* Scrollbar */
+.book-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.book-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+/* Chapters */
+.chapter-title {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #6b4c3b;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+p {
+    margin-bottom: 15px;
 }
 
 /* Responsive */
 @media(max-width:500px){
-    .book-frame{
+    .book-container{
         width: 95%;
         height: 600px;
         border-radius: 20px;
         border: 8px solid #111;
+        padding: 20px;
     }
 }
-
 </style>
 </head>
 
@@ -446,13 +473,44 @@ body {
 <section class="book-preview">
     <h2>The Book</h2>
 
-    <div class="book-frame">
-        <iframe src="book.html"></iframe>
+    <div class="book-container">
+        <div class="chapter-title">The Boy Who Stayed</div>
+        <div class="subtitle">A Journey of Love, Growth, and Memories</div>
+
+        <p>I was born into motion. The world did not slow down to welcome me. It was already running, already demanding, already whispering that survival was the only rule. Even as a child, I sensed that life was not something gentle. It was something that required strength before you even understood what strength meant.</p>
+        <p>School became the first battlefield. Matric. FSc. Classrooms filled with noise, ambition, and expectation. I moved through them quietly. I studied. I passed. I did what was required. But inside, I felt distant. As if I were watching someone else live my life from across the room.</p>
+        <p>Days belonged to responsibility. Nights belonged to overthinking. On the football field, I felt different. There, I was not the silent boy in the classroom. I was breath, sweat, instinct. Every strike felt like proof that I was still fighting. Every goal felt like a refusal to disappear. But when the game ended and the lights dimmed, the weight returned. Sometimes I felt alive. Sometimes I felt like I was only pretending.</p>
+
+        <div class="chapter-title">The Girl With the Quiet Gravity</div>
+        <p>Some people arrive loudly. She did not. Zaifi entered my life the way sunlight enters a room. Gradually. Softly. And then suddenly, everything is illuminated. It was during the strange silence of the pandemic that I truly noticed her. When classes resumed and life awkwardly returned to normal, I saw her differently. Not just as another face in tuition. But as something inevitable.</p>
+        <p>The first time I truly looked into her eyes, something inside me surrendered. There is a line in Urdu that says, what exists in this world except your eyes. At the time, it did not feel poetic. It felt factual. We began talking in tenth grade. First through screens. Then through messages that stretched late into the night. Conversations that started casually and ended with silence neither of us wanted to break.</p>
+        <p>One day, I gathered the courage and asked her to be mine. She hesitated. She said that love ends in pain. That one of us would eventually walk away and the other would remain broken. I told her I would never leave. I believed that with the stubbornness only young love carries.</p>
+
+        <div class="chapter-title">The First Touch</div>
+        <p>We drifted apart once. Misunderstandings. Ego. Fear. I left tuition thinking distance would protect me. It did not. When I returned, I tried to pretend I was unaffected. I watched her from a distance. Memorized the way she laughed. The way she brushed her hair behind her ear.</p>
+        <p>One day she called me over. She said sorry. That single word erased weeks of silence. That was the day I held her hand for the first time. It was not dramatic. No fireworks. No music. Just warmth. Just certainty. Just the quiet realization that some people feel like home the moment you touch them.</p>
+        <p>After that, our world became smaller and more precious. We met before tuition. After tuition. Under open skies where stars felt closer than usual. Chocolates shared between shy smiles. Lollipops passed like secret codes. Kisses on cheeks that felt like promises. She was not just my girlfriend. She was my best friend. My safe place. My peace in a noisy world.</p>
+
+        <div class="chapter-title">The Unraveling</div>
+        <p>Love does not always collapse in chaos. Sometimes it fades quietly. Exams came. Pressure built. Communication weakened. We spoke less. We misunderstood more. What once felt natural began to feel fragile. And then it ended. Not in one explosion. But in slow, painful distance.</p>
+        <p>Months later, during Ramadan, she returned again. Softer. More careful. She had shifted cities. She had spoken to her family. But reality stood between us like an unmovable wall. First careers. Then marriage. For now, silence. I understood. I respected it. But understanding does not reduce pain.</p>
+
+        <div class="chapter-title">The Last Drive</div>
+        <p>There is always a last time. We just never recognize it. I remember the car. The soft glow of streetlights against the windshield. The quiet hum of the engine. My heart beating louder than it should have. I told her I loved her. She told me to take care of myself. Her voice was calm. Almost distant. She drove away without looking back. Not once.</p>
+        <p>If I had known that was the final time I would see her like that, I would have memorized everything. The way her fingers rested on the steering wheel. The way her eyes avoided mine. The way goodbye settled between us without being spoken. Some endings are not loud. They are just final.</p>
+
+        <div class="chapter-title">The Man I Became Without Her</div>
+        <p>Life did not stop after she left. It never does. I worked. I progressed. I carried responsibility on my shoulders like armor. To others, I looked stable. Focused. Ambitious. Inside, I was exhausted. Nights became heavier. Sleep became rare. Cigarettes filled the spaces between thoughts. Music became a companion that understood what people could not. Every crowd felt incomplete. Every celebration carried a shadow. Every achievement felt like something I wanted to tell her about. She once believed in my dreams. She once told me to keep going. Now I was going alone.</p>
+
+        <div class="chapter-title">Acceptance</div>
+        <p>Love changes form. At first, it burns. Then it aches. Then it becomes memory. I am learning to choose myself now. To accept that some people are meant to shape you, not stay with you. She was my first love. The kind that rewrites your understanding of everything. The kind that teaches you how deeply you are capable of feeling. I no longer wait for her return. But I carry her with me. Not as a wound. As a lesson. As proof that once in my life, I loved without calculation, without fear, without conditions. And that love, even if it did not stay, made me stronger.</p>
     </div>
 </section>
 
 </body>
 </html>
+
+
 
 <!-- 💖 LOVE BALLOON GAME -->
 <div style="text-align:center; margin-top:80px;">
